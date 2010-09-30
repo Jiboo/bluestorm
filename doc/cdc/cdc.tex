@@ -1,0 +1,52 @@
+\documentclass{article}
+\title{Cahier des charges}
+\author{Jean-Baptiste Lepesme, Benoit Caruso}
+\date{}
+\begin{document}	
+	\maketitle
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Actions a r\'ealiser}
+		Prendre en main les outils de programmation pour le Lego Mindstorms et faire une application Android permettant de piloter le robot.
+		Dans un deuxième temps, il faudra implémenter une pile UPnP sur le robot, et lui implémenter des services permettant de le piloter via ce protocole.
+		
+		% Remplacer les implemanter %
+		
+		\subsection{Decouvrir le syst\`eme}
+			Il faudra dans un premier choisir la forme du robot, qui permetra le plus de possibilitées:
+				- Humanoide
+				- Vehicule a pince
+				- Non mobile (bras)
+			Dans un deuxieme temps il faudra installer et configurer les outils pour developper et programmer le robot.
+		\subsection{Experimenter avec l'API LeJOS}
+			LeJOS est un firmware customiz\`e qui a \'et\`e install\'e sur le robot afin d'avoir une machine virtuelle Java et des API bas et haut niveau pour controller le robot.
+		\subsection{Faire une application Android}
+			Une fois le fonctionnement du robot validé, nous piloterons le robot via un serveur Bluetooth compris dans le firmware.
+			Voir "Appendix 1-LEGO MINDSTORMS NXT Communication protocol" et "Appendix 2-LEGO MINDSTORMS NXT Direct commands" du Bluetooth Developer Kit disponible sur le site officiel de Lego Mindstorms.
+			\subsubsection{Les fonctions \`a r\'ealiser}
+				Pilotage du robot (surrement un v\'eicule avec pince):
+					- Utilisation du gyroscope:
+						- La vitesse de rotation de chaque trains dépend de l'orientation du téléphone.
+						- Si le téléphone ne possède pas de gyroscope:
+							L'application proposera 4 boutons:
+								- Marche avant et arri\`ere
+								- Rotation (sur place) dans le sens horraire et anti-horraire
+					- Des boutons permetrons d'ouvrir et fermer la pince.
+					- Il sera possible de visualiser:
+						La distance du prochain obstacle (via le capteur ultra-son)
+						Le niveau de batteries
+		\subsection{Impl\'ementer une pile UPnP dans LeJOS}
+			Faire du robot un device UPnP
+				Le robot contiendra des subdevices capteurs et actionneurs
+					Ils contiendront des fonctions de bas niveau
+				Le robot contiendra des fonctions haut niveau
+	
+	\newpage
+				
+	\section{Planning}
+	
+\end{document}
+
