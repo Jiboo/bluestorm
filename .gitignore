@@ -1,7 +1,5 @@
-bin/*
-docs/*
+*.jar
+*.class
+doc/*
 !doc/img/*
 !doc/*.tex
-bin/*
-gen/*
-
