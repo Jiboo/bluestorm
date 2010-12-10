@@ -60,11 +60,11 @@ public class FormuleTest extends Activity implements SensorEventListener{
 
         if(arg.values[1] > 0)
         {
-            leftPower += orient;
+            leftPower -= orient;
         }
         else
         {
-            rightPower -= orient;
+            rightPower += orient;
         }
 
         if(leftPower > 100) leftPower = 100;
