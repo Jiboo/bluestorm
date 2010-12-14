@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
      package="org.me.bluestorm">
-    <application>
-         <activity android:name=".MainActivity" android:label="MainActivity">
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <application android:debuggable="true">
+         <activity android:name=".MainActivity" android:label="MainActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
