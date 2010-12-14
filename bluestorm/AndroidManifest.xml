@@ -3,7 +3,7 @@
      package="org.me.bluestorm">
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <application android:debuggable="true">
-         <activity android:name=".MainActivity" android:label="MainActivity" android:screenOrientation="landscape">
+         <activity android:name=".Bluestorm" android:label="Bluestorm" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

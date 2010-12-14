@@ -18,7 +18,7 @@ import org.me.bluestorm.Capteurs.tools.interfaces.IOrientationListener;
  *
  * @author jiboo
  */
-public class MainActivity extends Activity implements IOrientationListener
+public class Bluestorm extends Activity implements IOrientationListener
 {
     Nxt nxt;
 
