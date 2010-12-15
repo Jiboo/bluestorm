@@ -5,16 +5,23 @@ import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.Log;
 
 /**
  * Cette classe s'occupe de gérer les capteurs 
  * @author benoît caruso
  */
 public class Capteurs implements ISensorManager{
-    private Capteur gyroscope = null;
+    /**
+     * Enum qui représente les types de capteurs dispo pour la méthode subscribe
+     */
+    public enum TypesCapteurs {
+        orientation, vWhellPower
+    }
+
+    private Capteur gyroscope   = null;
     private Capteur orientation = null;
-    
+    private Capteur vWheelPower = null;
+
     private SensorManager sensorManager;
 
 
@@ -23,10 +30,22 @@ public class Capteurs implements ISensorManager{
         this.sensorManager = sensorManager;
     }
 
+    public void subscribe(TypesCapteurs type, ISensorListener subscribingListener, int sensibility){
+        switch (type){
+            case orientation :
+                this.subscribeOrientation(subscribingListener, sensibility);
+            break;
+            case vWhellPower:
+                this.subscribeVWheelPower(subscribingListener, sensibility);
+            break;
+            default : break;
+        }
+    }
+
     /**
      * @param sensibility défini dans SensorManager.SENSOR_DELAY_*
      */
-    public void subscribeGyroscope(ISensorListener subscribingListener, int sensibility){
+    private void subscribeGyroscope(ISensorListener subscribingListener, int sensibility){
         //instanciation on demand
         if (this.gyroscope == null) {
             this.gyroscope = new Gyroscope(sensibility, this);
@@ -36,14 +55,23 @@ public class Capteurs implements ISensorManager{
         /**
      * @param sensibility défini dans SensorManager.SENSOR_DELAY_*
      */
-    public void subscribeOrientation(ISensorListener subscribingListener, int sensibility){
+    private void subscribeOrientation(ISensorListener subscribingListener, int sensibility){
         //instanciation on demand
         if (this.orientation == null) {
             this.orientation = new Orientation(sensibility, this);
         }
         this.orientation.subscribe(subscribingListener);
     }
-
+    /**
+     * @param sensibility défini dans SensorManager.SENSOR_DELAY_*
+     */
+    private void subscribeVWheelPower(ISensorListener subscribingListener, int sensibility){
+        //instanciation on demand
+        if (this.vWheelPower == null) {
+            this.vWheelPower = new VirtualSensorWheelPower(sensibility, this);
+        }
+        this.vWheelPower.subscribe(subscribingListener);
+    }
     /**
      * Permet de récupérer un capteur par défaut
      * @param type : par ex Sensor.TYPE_GYROSCOPE

@@ -12,6 +12,8 @@ import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListen
 
 /**
  * Capteur virtuel
+ * pour ce capteur on envoi en values[0] rightPower, la puissance de la roue de droite
+ *                             values[1] leftPower,  la puissance de la roue de gauche
  * @author sangskaal
  */
 public class VirtualSensorWheelPower extends Capteur{
@@ -27,25 +29,29 @@ public class VirtualSensorWheelPower extends Capteur{
 
     @Override
     public void onSensorChanged(SensorEvent arg0){
-        arg0.values[0] = -1;
-        double leftPower, rightPower;
+        
+        float leftPower, rightPower;
 
-        double accel = (orientation[2]/50.) * 100;
-        double orient = (orientation[1]/50.) * 50;
+        float accel  = ((arg0.values[2] / 50) * 100);
+        float orient = ((arg0.values[1] / 50) * 50);
 
         leftPower = accel;
         rightPower = accel;
 
-        if(orientation[1] > 0) {
+        if(arg0.values[1] > 0) {
             leftPower -= orient;
         } else {
             rightPower += orient;
         }
 
-        if(leftPower > 100) leftPower = 100;
-        if(leftPower < -100) leftPower = -100;
-        if(rightPower > 100) rightPower = 100;
+        //Saturation des valeurs à 100
+        if(leftPower  >  100) leftPower  =  100;
+        if(leftPower  < -100) leftPower  = -100;
+        if(rightPower >  100) rightPower =  100;
         if(rightPower < -100) rightPower = -100;
+
+        arg0.values[0] =  rightPower;
+        arg0.values[1] =  leftPower;
 
         super.onSensorChanged(arg0);
     }
