@@ -32,10 +32,11 @@ public class MainActivity extends Activity implements IOrientationListener
         leftPower = accel;
         rightPower = accel;
 
-        if(orientation[1] > 0)
+        if(orientation[1] > 0) {
             leftPower -= orient;
-        else
+        } else {
             rightPower += orient;
+        }
 
         if(leftPower > 100) leftPower = 100;
         if(leftPower < -100) leftPower = -100;
