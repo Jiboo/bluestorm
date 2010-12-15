@@ -42,6 +42,22 @@ public class Capteurs implements ISensorManager{
         }
     }
 
+    public void unsubscribe(TypesCapteurs type, ISensorListener unsubscribingListener){
+        switch (type){
+            case orientation :
+                this.unsubscribeOrientation(unsubscribingListener);
+            break;
+            case vWhellPower:
+                this.unsubscribeVWheelPower(unsubscribingListener);
+            break;
+            default : break;
+        }
+    }
+
+
+    /******************************************************/
+    /**************Methodes internes***********************/
+    /******************************************************/
     /**
      * @param sensibility défini dans SensorManager.SENSOR_DELAY_*
      */
@@ -72,6 +88,14 @@ public class Capteurs implements ISensorManager{
         }
         this.vWheelPower.subscribe(subscribingListener);
     }
+    private void unsubscribeOrientation(ISensorListener unsubscribingListener) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private void unsubscribeVWheelPower(ISensorListener unsubscribingListener) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
     /**
      * Permet de récupérer un capteur par défaut
      * @param type : par ex Sensor.TYPE_GYROSCOPE
