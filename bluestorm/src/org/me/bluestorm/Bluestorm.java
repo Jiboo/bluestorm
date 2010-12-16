@@ -75,7 +75,8 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
 
     public void getWheelPower(SensorEvent event) {
         try {
-            nxt.setSpeed((byte)event.values[1], (byte)event.values[0]);
+            if(nxt.isConnected())
+                nxt.setSpeed((byte)event.values[1], (byte)event.values[0]);
         }
         catch(Exception e) {
             Log.d("bluestorm", "", e);
