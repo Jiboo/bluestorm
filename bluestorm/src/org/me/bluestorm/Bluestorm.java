@@ -129,6 +129,13 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
             public void run() {
                 try {
                     nxt.connect();
+
+
+                    Partition jinglebells = new Partition(new Note[] {
+                        new Note(Note.DO, 1000, 8),
+                        new Note(Note.DO, 1000, 8)
+                    });
+
                     Bluestorm.this.changeView(game);
                 }
                 catch(Exception e) {
