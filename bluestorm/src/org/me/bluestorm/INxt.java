@@ -109,5 +109,5 @@ public interface INxt
      * @param pDuration en ms
      * @throws IOException erreur sur le socket
      */
-    void emitTone(int pFreq, int pDuration) throws IOException;
+    void emitTone(int pFreq, int pDuration) throws IOException, InterruptedException;
 }

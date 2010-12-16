@@ -7,6 +7,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.me.bluestorm.Bluestorm;
 
 /**
@@ -18,6 +21,7 @@ public class Game extends LinearLayout implements OnClickListener {
     Bluestorm activity;
     Button cycleClaw;
     Button disconnect;
+    Button tone;
     boolean clawState;
 
     public Game(Bluestorm con) {
@@ -34,6 +38,10 @@ public class Game extends LinearLayout implements OnClickListener {
         disconnect = new Button(con);
         disconnect.setText("Deconnexion");
         disconnect.setOnClickListener(this);
+
+        tone = new Button(con);
+        tone.setText("Bip");
+        tone.setOnClickListener(this);
 
         addView(cycleClaw);
         addView(disconnect);
@@ -60,6 +68,13 @@ public class Game extends LinearLayout implements OnClickListener {
         }
         else if(arg == disconnect) {
             activity.stop();
+        }
+        else if(arg == tone) {
+            try {
+                activity.getNxt().emitTone(400, 1000);
+            } catch (Exception ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

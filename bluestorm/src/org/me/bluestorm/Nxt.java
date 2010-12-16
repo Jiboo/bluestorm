@@ -257,7 +257,7 @@ public class Nxt implements INxt {
         return (rep[3] + (rep[4]<<8)) / 9000.0;
     }
 
-    public void emitTone(int pFreq, int pDur) throws IOException {
+    public void emitTone(int pFreq, int pDur) throws IOException, InterruptedException {
         byte[] ba = {
             (byte)0x06,
             (byte)0x00,
@@ -267,5 +267,6 @@ public class Nxt implements INxt {
             (byte)(pDur & (short)0xFF), (byte)(pDur>>8 & (short)0xFF) // Dur en ms (UWORD)
         };
         send(ba);
+        Thread.sleep(pDur);
     }
 }
