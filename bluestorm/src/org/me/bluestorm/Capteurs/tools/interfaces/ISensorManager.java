@@ -15,4 +15,5 @@ import android.hardware.SensorEventListener;
 public interface ISensorManager {
     Sensor getDefaultSensor(int type);
     void registerListener(SensorEventListener listener, Sensor sensor, int delay);
+    void unregisterListener(SensorEventListener listener);
 }

@@ -20,6 +20,7 @@ public class Capteurs implements ISensorManager{
 
     private Capteur gyroscope   = null;
     private Capteur orientation = null;
+    /** Capteur virtuel qui utilise l'orientation pour calculer une puissance gauche et une puissance droite */
     private Capteur vWheelPower = null;
 
     private SensorManager sensorManager;
@@ -89,11 +90,14 @@ public class Capteurs implements ISensorManager{
         this.vWheelPower.subscribe(subscribingListener);
     }
     private void unsubscribeOrientation(ISensorListener unsubscribingListener) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        //throw new UnsupportedOperationException("Not yet implemented");
+        if (this.orientation == null) return;
+        this.orientation.unsubscribe(unsubscribingListener);
     }
 
     private void unsubscribeVWheelPower(ISensorListener unsubscribingListener) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (this.vWheelPower == null) return;
+        this.vWheelPower.unsubscribe(unsubscribingListener);
     }
 
     /**
@@ -113,5 +117,9 @@ public class Capteurs implements ISensorManager{
      */
     public void registerListener(SensorEventListener listener, Sensor sensor, int delay) {
         this.sensorManager.registerListener(listener , sensor, delay);
+    }
+    
+    public void unregisterListener(SensorEventListener listener) {
+        this.sensorManager.unregisterListener(listener);
     }
 }
