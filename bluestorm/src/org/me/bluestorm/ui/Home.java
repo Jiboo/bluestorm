@@ -7,17 +7,22 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import org.me.bluestorm.Bluestorm;
 
 /**
  *
  * @author jiboo
  */
 public class Home extends LinearLayout implements OnClickListener {
+
+    Bluestorm activity;
     TextView text;
     Button connexion;
 
-    public Home(Context con) {
+    public Home(Bluestorm con) {
         super(con);
+        this.activity = con;
+
         this.setOrientation(LinearLayout.HORIZONTAL);
         this.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
@@ -35,6 +40,7 @@ public class Home extends LinearLayout implements OnClickListener {
     public void onClick(View arg) {
         if(arg == connexion) {
             Log.d("bluestorm", "Connexion button clicked!");
+            activity.demarrerConnexion();
         }
     }
 }

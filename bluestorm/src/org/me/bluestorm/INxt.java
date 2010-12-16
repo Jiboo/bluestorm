@@ -25,7 +25,7 @@ public interface INxt
      * @return Vrai si la connexion à réussi
      * @throws IOException
      */
-    public boolean connect() throws IOException;
+    public void connect() throws Exception;
 
     /**
      * Stop la connexion avec le robot

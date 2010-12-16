@@ -43,27 +43,25 @@ public class Nxt implements INxt {
         return this.sock.getOutputStream() != null;
     }
 
-    public boolean connect() throws IOException {
-        if(dev == null) return false;
+    public void connect() throws Exception {
+        if(dev == null) throw new Exception("Pas de NXT associé!");
 
         Log.d("bluestorm", "Ouverture de la socket");
         try { sock = dev.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")); }
-        catch(Exception e) { Log.e("bluestorm", "impossible de créer la socket"); }
-        if(sock == null) return false;
+        catch(Exception e) { throw new Exception("Impossible d'ouvrir la socket, avez vous activé le bluetooth sur votre téléphone?"); }
+        if(sock == null) throw new Exception("Problème lors de la création de la socket");
 
         Log.d("bluestorm", "Connexion...");
         try { sock.connect(); }
-        catch(Exception e) { Log.e("bluestorm", "connexion impossible"); return false; }
+        catch(Exception e) { throw new Exception("Impossible de se connecter au robot, verifier qu'il soit allumé et que le bluetooth soit activé"); }
 
         this.setInputMode((byte)0, SENSOR_SWITCH, SENSOR_BOOLEANMODE);
-
-        return true;
     }
 
     public void close() {
         if(sock != null) {
             try { sock.close(); }
-            catch(Exception e) { Log.e("bluestorm", "connexion impossible"); }
+            catch(Exception e) { Log.e("bluestorm", "deconnexion impossible, lol"); }
         }
     }
 
