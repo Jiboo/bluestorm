@@ -11,9 +11,11 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import org.me.bluestorm.Capteurs.Capteurs;
 import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListener;
+import org.me.bluestorm.ui.Game;
 import org.me.bluestorm.ui.Home;
 
 /**
@@ -25,6 +27,8 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
     Nxt nxt;
     Capteurs capteurs;
     ProgressDialog progress;
+    Home home;
+    Game game;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -32,12 +36,14 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
 
         try {
             capteurs = new Capteurs((SensorManager) getSystemService(SENSOR_SERVICE));
-            this.nxt = new Nxt();
+            nxt = new Nxt();
+            home = new Home(this);
+            game = new Game(this);
 
-            this.setContentView(new Home(this));
+            setContentView(home);
         }
         catch(Exception e) {
-            //TODO Afficher un message a l'utilisateur
+            alert(e.getMessage());
             Log.e("bluestorm", "Exception caught in onCreate:", e);
         }
     }
@@ -47,15 +53,15 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
         super.onDestroy();
 
         try {
-            if(this.nxt != null) {
-                if(this.nxt.isConnected()) {
-                    this.nxt.stop();
-                    this.nxt.close();
+            if(nxt != null) {
+                if(nxt.isConnected()) {
+                    nxt.stop();
+                    nxt.close();
                 }
             }
         }
         catch(Exception e) {
-            //TODO Afficher un message a l'utilisateur
+            alert(e.getMessage());
             Log.e("bluestorm", "Exception caught in onDestroy:", e);
         }
     }
@@ -94,9 +100,17 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
      * @param pMessage le text du toast a afficher
      */
     public void alert(final String pMessage) {
-        this.runOnUiThread(new Runnable() {
+        runOnUiThread(new Runnable() {
             public void run() {
                 Toast.makeText(Bluestorm.this, pMessage,  Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void changeView(final View v) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                setContentView(v);
             }
         });
     }
@@ -109,11 +123,14 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
      * Initie la connexion au robot
      */
     public void demarrerConnexion() {
-        progress = ProgressDialog.show(this, "Connexion...", "Veuillez patienter, connexion en cours...", true, false);
+        progress = ProgressDialog.show(this, "Veuillez patienter...", "Connexion en cours...", true, false);
         new Thread() {
             @Override
             public void run() {
-                try { nxt.connect();}
+                try {
+                    nxt.connect();
+                    Bluestorm.this.changeView(game);
+                }
                 catch(Exception e) {
                     Log.e("bluestorm", "Erreur lors de la connexion", e);
                     alert(e.getMessage());
@@ -121,5 +138,17 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
                 progress.dismiss();
             }
         }.start();
+    }
+
+    public void stop() {
+        nxt.close();
+        Bluestorm.this.changeView(home);
+    }
+
+    /**
+     *
+     */
+    public INxt getNxt() {
+        return nxt;
     }
 }

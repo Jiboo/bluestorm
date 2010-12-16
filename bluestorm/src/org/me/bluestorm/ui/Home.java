@@ -21,20 +21,20 @@ public class Home extends LinearLayout implements OnClickListener {
 
     public Home(Bluestorm con) {
         super(con);
-        this.activity = con;
+        activity = con;
 
-        this.setOrientation(LinearLayout.HORIZONTAL);
-        this.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+        setOrientation(LinearLayout.HORIZONTAL);
+        setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
-        this.connexion = new Button(con);
-        this.connexion.setText("Connexion");
-        this.connexion.setOnClickListener(this);
+        connexion = new Button(con);
+        connexion.setText("Connexion");
+        connexion.setOnClickListener(this);
 
-        this.text = new TextView(con);
-        this.text.setText("Vous devez avoir le NXT associé, et son nom doit être \"NXT\"");
+        text = new TextView(con);
+        text.setText("Vous devez avoir le NXT associé, et son nom doit être \"NXT\"");
 
-        this.addView(this.text);
-        this.addView(this.connexion);
+        addView(text);
+        addView(connexion);
     }
     
     public void onClick(View arg) {

@@ -40,7 +40,7 @@ public class Nxt implements INxt {
     }
 
     public boolean isConnected() throws IOException {
-        return this.sock.getOutputStream() != null;
+        return sock.getOutputStream() != null;
     }
 
     public void connect() throws Exception {
@@ -55,7 +55,7 @@ public class Nxt implements INxt {
         try { sock.connect(); }
         catch(Exception e) { throw new Exception("Impossible de se connecter au robot, verifier qu'il soit allumé et que le bluetooth soit activé"); }
 
-        this.setInputMode((byte)0, SENSOR_SWITCH, SENSOR_BOOLEANMODE);
+        setInputMode((byte)0, SENSOR_SWITCH, SENSOR_BOOLEANMODE);
     }
 
     public void close() {
@@ -100,7 +100,7 @@ public class Nxt implements INxt {
             (byte)0x80, // Pas de réponse
             (byte)0x0D, // KeepAlive
         };
-        this.send(ba);
+        send(ba);
     }
 
     public static final byte STATIC_SPEED = 100;
@@ -140,7 +140,7 @@ public class Nxt implements INxt {
             run_state,
             (byte)(limit & 0xFF), (byte)(limit>>8 & 0xFF), (byte)(limit>>16 & 0xFF), (byte)(limit>>24 & 0xFF),
         };
-        this.send(ba);
+        send(ba);
     }
 
     public static final byte SENSOR_NONE = 0x00;
@@ -178,7 +178,7 @@ public class Nxt implements INxt {
             sensor_type,
             sensor_mode
         };
-        this.send(ba);
+        send(ba);
     }
 
     private void getInputValues(byte port) throws IOException {
@@ -189,49 +189,49 @@ public class Nxt implements INxt {
             (byte)0x07, // GetInputValues
             port
         };
-        this.send(ba);
+        send(ba);
     }
 
     public void setSpeed(byte pLeftSpeed, byte pRightSpeed) throws IOException {
-        this.setOutputState(PORT_A, (byte)(pRightSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
-        this.setOutputState(PORT_B, (byte)(pLeftSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        setOutputState(PORT_A, (byte)(pRightSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        setOutputState(PORT_B, (byte)(pLeftSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
     }
 
     public void stop() throws IOException {
-        this.setOutputState(PORT_ALL, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
+        setOutputState(PORT_ALL, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
     public void goForward() throws IOException {
-        this.setSpeed(STATIC_SPEED, STATIC_SPEED);
+        setSpeed(STATIC_SPEED, STATIC_SPEED);
     }
 
     public void goBackward() throws IOException {
-        this.setSpeed((byte)(-STATIC_SPEED), (byte)(-STATIC_SPEED));
+        setSpeed((byte)(-STATIC_SPEED), (byte)(-STATIC_SPEED));
     }
 
     public void turnLeft() throws IOException {
-        this.setSpeed(STATIC_SPEED, (byte)(-STATIC_SPEED));
+        setSpeed(STATIC_SPEED, (byte)(-STATIC_SPEED));
     }
 
     public void turnRight() throws IOException {
-        this.setSpeed((byte)(-STATIC_SPEED), STATIC_SPEED);
+        setSpeed((byte)(-STATIC_SPEED), STATIC_SPEED);
     }
 
     public void openClaw() throws IOException, InterruptedException {
-        this.setOutputState(PORT_C, (byte)(STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
-        Thread.sleep(500);
-        this.setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
+        setOutputState(PORT_C, (byte)(STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
+        Thread.sleep(1000);
+        setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
     public void closeClaw() throws IOException, InterruptedException {
-        this.setOutputState(PORT_C, (byte)(-(STATIC_SPEED/1.5)), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
+        setOutputState(PORT_C, (byte)(-(STATIC_SPEED/1.5)), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
         Thread.sleep(1000);
-        this.setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
+        setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
     public boolean gotBall() throws IOException {
-        this.getInputValues((byte)0);
-        byte[] rep = this.read();
+        getInputValues((byte)0);
+        byte[] rep = read();
 
         assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
 
@@ -249,9 +249,9 @@ public class Nxt implements INxt {
             (byte)0x00, // Réponse
             (byte)0x0B, // BatteryLevel
         };
-        this.send(ba);
+        send(ba);
 
-        byte[] rep = this.read();
+        byte[] rep = read();
 
         assert(rep[0] == (byte)0x2 && rep[1] == (byte)0xB && rep[2] == (byte)0x0);
         return (rep[3] + (rep[4]<<8)) / 9000.0;
@@ -266,6 +266,6 @@ public class Nxt implements INxt {
             (byte)(pFreq & (short)0xFF), (byte)(pFreq>>8 & (short)0xFF), // Freq (UWORD)
             (byte)(pDur & (short)0xFF), (byte)(pDur>>8 & (short)0xFF) // Dur en ms (UWORD)
         };
-        this.send(ba);
+        send(ba);
     }
 }
