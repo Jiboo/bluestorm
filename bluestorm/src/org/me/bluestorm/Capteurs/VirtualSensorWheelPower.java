@@ -29,7 +29,6 @@ public class VirtualSensorWheelPower extends Capteur{
 
     @Override
     public void onSensorChanged(SensorEvent arg0){
-        
         float leftPower, rightPower;
 
         float accel  = ((arg0.values[2] / 50) * 100);
