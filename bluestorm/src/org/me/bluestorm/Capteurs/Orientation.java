@@ -1,6 +1,5 @@
 package org.me.bluestorm.Capteurs;
 
-import org.me.bluestorm.Capteurs.tools.interfaces.IGyroscopeListener;
 import org.me.bluestorm.Capteurs.tools.interfaces.IOrientationListener;
 import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
 import android.hardware.Sensor;
@@ -19,5 +18,4 @@ public class Orientation extends Capteur {
         //On indique le type de listener qu'il faut. Pour la fonction subscribe, la classe générique Capteur s'en occupe
         this.listenerType = IOrientationListener.class.getCanonicalName();
     }
-
 }

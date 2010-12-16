@@ -5,6 +5,7 @@ import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import org.me.bluestorm.Capteurs.tools.interfaces.ICapteur;
 
 /**
  * Cette classe s'occupe de gérer les capteurs 
@@ -18,10 +19,10 @@ public class Capteurs implements ISensorManager{
         orientation, vWhellPower
     }
 
-    private Capteur gyroscope   = null;
-    private Capteur orientation = null;
+    private ICapteur gyroscope   = null;
+    private ICapteur orientation = null;
     /** Capteur virtuel qui utilise l'orientation pour calculer une puissance gauche et une puissance droite */
-    private Capteur vWheelPower = null;
+    private ICapteur vWheelPower = null;
 
     private SensorManager sensorManager;
 
@@ -55,6 +56,15 @@ public class Capteurs implements ISensorManager{
         }
     }
 
+    public void pauseCapteur(TypesCapteurs type) {
+        if (this.getCapteur(type) == null){ return; }
+        this.getCapteur(type).pauseSensor();
+    }
+
+    public void resumeCapteur(TypesCapteurs type) {
+        if (this.getCapteur(type) == null){ return; }
+        this.getCapteur(type).resumeSensor();
+    }
 
     /******************************************************/
     /**************Methodes internes***********************/
@@ -69,7 +79,7 @@ public class Capteurs implements ISensorManager{
         }
         this.gyroscope.subscribe(subscribingListener);
     }
-        /**
+    /**
      * @param sensibility défini dans SensorManager.SENSOR_DELAY_*
      */
     private void subscribeOrientation(ISensorListener subscribingListener, int sensibility){
@@ -90,16 +100,20 @@ public class Capteurs implements ISensorManager{
         this.vWheelPower.subscribe(subscribingListener);
     }
     private void unsubscribeOrientation(ISensorListener unsubscribingListener) {
-        //throw new UnsupportedOperationException("Not yet implemented");
-        if (this.orientation == null) return;
+        if (this.orientation == null){ return; }
         this.orientation.unsubscribe(unsubscribingListener);
     }
-
     private void unsubscribeVWheelPower(ISensorListener unsubscribingListener) {
-        if (this.vWheelPower == null) return;
+        if (this.vWheelPower == null){ return; }
         this.vWheelPower.unsubscribe(unsubscribingListener);
     }
-
+    private ICapteur getCapteur(TypesCapteurs type){
+        switch (type){
+            case orientation : return this.orientation;
+            case vWhellPower : return this.vWheelPower;
+            default          : return null;
+        }
+    }
     /**
      * Permet de récupérer un capteur par défaut
      * @param type : par ex Sensor.TYPE_GYROSCOPE
@@ -108,7 +122,6 @@ public class Capteurs implements ISensorManager{
     public Sensor getDefaultSensor(int type){
         return this.sensorManager.getDefaultSensor(type);
     }
-
     /**
      * enregistre un listener pour un capteur donné
      * @param listener

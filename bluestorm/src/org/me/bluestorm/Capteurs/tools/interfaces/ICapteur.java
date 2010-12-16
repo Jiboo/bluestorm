@@ -3,6 +3,7 @@ package org.me.bluestorm.Capteurs.tools.interfaces;
 import android.hardware.SensorEventListener;
 
 /**
+ * Interface pour manipuler un capteur
  * @author benoît caruso
  */
 public interface ICapteur extends SensorEventListener {
