@@ -41,9 +41,9 @@ public class Game extends LinearLayout implements OnClickListener {
 
     public void onClick(View arg) {
         if(arg == cycleClaw) {
-            new Thread() {
+            /*new Thread() {
                 @Override
-                public void run() {
+                public void run() {*/
                     try {
                         if(clawState)
                             activity.getNxt().closeClaw();
@@ -55,8 +55,8 @@ public class Game extends LinearLayout implements OnClickListener {
                         Log.e("bluestorm", "Error while cycling claw", e);
                         activity.alert(e.getMessage());
                     }
-                }
-            }.start();
+  /*              }
+            }.start();*/
         }
         else if(arg == disconnect) {
             activity.stop();

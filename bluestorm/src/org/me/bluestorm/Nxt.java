@@ -218,14 +218,14 @@ public class Nxt implements INxt {
     }
 
     public void openClaw() throws IOException, InterruptedException {
-        setOutputState(PORT_C, (byte)(STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
-        Thread.sleep(1000);
+        setOutputState(PORT_C, (byte)(STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        Thread.sleep(100);
         setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
     public void closeClaw() throws IOException, InterruptedException {
-        setOutputState(PORT_C, (byte)(-(STATIC_SPEED/1.5)), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 20L);
-        Thread.sleep(1000);
+        setOutputState(PORT_C, (byte)(-STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        Thread.sleep(100);
         setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
