@@ -52,18 +52,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
     public void onDestroy() {
         super.onDestroy();
 
-        try {
-            if(nxt != null) {
-                if(nxt.isConnected()) {
-                    nxt.stop();
-                    nxt.close();
-                }
-            }
-        }
-        catch(Exception e) {
-            alert(e.getMessage());
-            Log.e("bluestorm", "Exception caught in onDestroy:", e);
-        }
+        stop();
     }
 
     @Override
@@ -85,6 +74,12 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
     // -------------------------------------------------------------------------
 
     public void getWheelPower(SensorEvent event) {
+        try {
+            nxt.setSpeed((byte)event.values[1], (byte)event.values[0]);
+        }
+        catch(Exception e) {
+            Log.d("bluestorm", "", e);
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -129,66 +124,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
             public void run() {
                 try {
                     nxt.connect();
-
-
-                    Partition jinglebells = new Partition(100, new Note[] {
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.SOL, Note.CROCHE, 8),
-                        new Note(Note.DO, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.SOL, Note.NOIRE, 8),
-
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.SOL, Note.CROCHE, 8),
-                        new Note(Note.DO, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.NOIRE, 8),
-
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.MI, Note.CROCHE, 8),
-                        new Note(Note.SOL, Note.CROCHE, 8),
-                        new Note(Note.SOL, Note.CROCHE, 8),
-                        new Note(Note.FA, Note.CROCHE, 8),
-                        new Note(Note.RE, Note.CROCHE, 8),
-                        new Note(Note.DO, Note.RONDE, 8),
-                    });
-
-                    jinglebells.play(nxt);
-
+                    nxt.emitTone(1000, 1000);
                     Bluestorm.this.changeView(game);
                 }
                 catch(Exception e) {
@@ -201,13 +137,21 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
     }
 
     public void stop() {
-        nxt.close();
+        try {
+            if(nxt != null) {
+                if(nxt.isConnected()) {
+                    nxt.stop();
+                    nxt.close();
+                }
+            }
+        }
+        catch(Exception e) {
+            alert(e.getMessage());
+            Log.e("bluestorm", "Exception caught in onDestroy:", e);
+        }
         Bluestorm.this.changeView(home);
     }
 
-    /**
-     *
-     */
     public INxt getNxt() {
         return nxt;
     }

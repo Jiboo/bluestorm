@@ -1,16 +1,12 @@
 package org.me.bluestorm.ui;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.me.bluestorm.Bluestorm;
+import org.me.bluestorm.Partition;
 
 /**
  *
@@ -22,6 +18,7 @@ public class Game extends LinearLayout implements OnClickListener {
     Button cycleClaw;
     Button disconnect;
     Button tone;
+    Button song;
     boolean clawState;
 
     public Game(Bluestorm con) {
@@ -32,49 +29,49 @@ public class Game extends LinearLayout implements OnClickListener {
         setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
         cycleClaw = new Button(con);
-        cycleClaw.setText("Pince");
+        cycleClaw.setText("Claw");
         cycleClaw.setOnClickListener(this);
 
         disconnect = new Button(con);
-        disconnect.setText("Deconnexion");
+        disconnect.setText("Disconnect");
         disconnect.setOnClickListener(this);
 
         tone = new Button(con);
-        tone.setText("Bip");
+        tone.setText("Beep");
         tone.setOnClickListener(this);
+
+        song = new Button(con);
+        song.setText("Song");
+        song.setOnClickListener(this);
 
         addView(cycleClaw);
         addView(disconnect);
+        addView(tone);
+        addView(song);
     }
 
     public void onClick(View arg) {
-        if(arg == cycleClaw) {
-            /*new Thread() {
-                @Override
-                public void run() {*/
-                    try {
-                        if(clawState)
-                            activity.getNxt().closeClaw();
-                        else
-                            activity.getNxt().openClaw();
-                        clawState = !clawState;
-                    }
-                    catch(Exception e) {
-                        Log.e("bluestorm", "Error while cycling claw", e);
-                        activity.alert(e.getMessage());
-                    }
-  /*              }
-            }.start();*/
-        }
-        else if(arg == disconnect) {
-            activity.stop();
-        }
-        else if(arg == tone) {
-            try {
-                activity.getNxt().emitTone(400, 1000);
-            } catch (Exception ex) {
-                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            if(arg == cycleClaw) {
+                if(clawState)
+                    activity.getNxt().closeClaw();
+                else
+                    activity.getNxt().openClaw();
+                clawState = !clawState;
             }
+            else if(arg == disconnect) {
+                activity.stop();
+            }
+            else if(arg == tone) {
+                activity.getNxt().emitTone(400, 1000);
+            }
+            else if(arg == song) {
+                Partition.jinglebells.play(activity.getNxt());
+            }
+        }
+        catch(Exception e) {
+            Log.e("bluestorm", "Error while cycling claw", e);
+            activity.alert(e.getMessage());
         }
     }
 }
