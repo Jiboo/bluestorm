@@ -52,27 +52,41 @@ public class FormuleTest extends Activity implements SensorEventListener{
     public void onSensorChanged(SensorEvent arg) {
         double leftPower, rightPower;
 
-        double accel = (arg.values[2]/50.) * 100;
-        double orient = (arg.values[1]/50.) * 50;
-
-        leftPower = accel;
-        rightPower = accel;
-
-        if(arg.values[1] > 0)
+        if(arg.values[2] > -5 && arg.values[2] < 5) // cas special pour la rotation sur lui meme
         {
-            leftPower -= orient;
+            double orient = (arg.values[1]/45.) * 100;
+
+            if(arg.values[1] > 0)
+            {
+                leftPower = orient;
+                rightPower = -orient;
+            }
+            else
+            {
+                leftPower = -orient;
+                rightPower = orient;
+            }
         }
         else
         {
-            rightPower += orient;
+            double accel = (arg.values[2]/45.) * 100;
+            double orient = (arg.values[1]/30.) * 50;
+
+            leftPower = accel;
+            rightPower = accel;
+
+            if(arg.values[1] > 0) // on tourne vers la droite
+                leftPower -= orient;
+            else
+                rightPower += orient; // + pcq orient sera negatif
+
+            if(leftPower > 100) leftPower = 100;
+            if(leftPower < -100) leftPower = -100;
+            if(rightPower > 100) rightPower = 100;
+            if(rightPower < -100) rightPower = -100;
         }
 
-        if(leftPower > 100) leftPower = 100;
-        if(leftPower < -100) leftPower = -100;
-        if(rightPower > 100) rightPower = 100;
-        if(rightPower < -100) rightPower = -100;
-
-        this.tv.setText(String.format("%.2f %.2f %.2f\n%3.0f %3.0f\n%3.0f %3.0f", arg.values[0], arg.values[1], arg.values[2], accel, orient, leftPower, rightPower));
+        this.tv.setText(String.format("%.2f %.2f %.2f\n%3.0f %3.0f", arg.values[0], arg.values[1], arg.values[2], leftPower, rightPower));
     }
 
     public void onAccuracyChanged(Sensor arg0, int arg1) {
