@@ -6,7 +6,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import org.me.bluestorm.Bluestorm;
-import org.me.bluestorm.Partition;
+import org.me.bluestorm.music.Partition;
 
 /**
  *

@@ -5,6 +5,8 @@
 
 package org.me.bluestorm;
 
+import org.me.bluestorm.com.Nxt;
+import org.me.bluestorm.com.INxt;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.hardware.SensorEvent;
