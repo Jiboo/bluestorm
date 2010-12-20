@@ -7,7 +7,6 @@ package org.me.bluestorm.Capteurs;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.util.Log;
 import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
 import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListener;
 
