@@ -28,7 +28,7 @@ public class VirtualSensorWheelPower extends Capteur{
         this.listenerType = IVirtualSensorWheelPowerListener.class.getCanonicalName();
     }
 
-    public static final float ANGLE_1 = 70;
+    public static final float ANGLE_1 = 45;
     public static final float ANGLE_2 = 30;
 
     @Override
