@@ -7,6 +7,7 @@ package org.me.bluestorm.Capteurs;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
+import android.util.Log;
 import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
 import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListener;
 
@@ -27,31 +28,48 @@ public class VirtualSensorWheelPower extends Capteur{
         this.listenerType = IVirtualSensorWheelPowerListener.class.getCanonicalName();
     }
 
+    public static final float ANGLE_1 = 70;
+    public static final float ANGLE_2 = 30;
+
     @Override
-    public void onSensorChanged(SensorEvent arg0){
-        float leftPower, rightPower;
+    public void onSensorChanged(SensorEvent arg){
 
-        float accel  = ((arg0.values[2] / 50) * 100);
-        float orient = ((arg0.values[1] / 50) * 50);
+        double leftPower = 0., rightPower = 0.;
 
-        leftPower = accel;
-        rightPower = accel;
+        if(arg.values[1] > ANGLE_1) arg.values[1] = ANGLE_1;
+        if(arg.values[1] < -ANGLE_1) arg.values[1] = -ANGLE_1;
+        if(arg.values[2] > ANGLE_2) arg.values[2] = ANGLE_2;
+        if(arg.values[2] < -ANGLE_2) arg.values[2] = -ANGLE_2;
 
-        if(arg0.values[1] > 0) {
-            leftPower -= orient;
-        } else {
-            rightPower += orient;
+        if(arg.values[2] > -8 && arg.values[2] < 8) // Rotation sur place
+        {
+            double orient = (arg.values[1]/ANGLE_1) * 100;
+
+            leftPower = -orient;
+            rightPower = orient;
+        }
+        else
+        {
+            double accel = (arg.values[2]/ANGLE_2) * 100;
+            double orient = (arg.values[1]/ANGLE_1) * 50;
+
+            leftPower = accel;
+            rightPower = accel;
+
+            if(arg.values[1] > 0) // on tourne vers la droite
+                leftPower -= orient;
+            else
+                rightPower += orient; // + pcq orient sera negatif
         }
 
-        //Saturation des valeurs à 100
-        if(leftPower  >  100) leftPower  =  100;
-        if(leftPower  < -100) leftPower  = -100;
-        if(rightPower >  100) rightPower =  100;
+        if(leftPower > 100) leftPower = 100;
+        if(leftPower < -100) leftPower = -100;
+        if(rightPower > 100) rightPower = 100;
         if(rightPower < -100) rightPower = -100;
 
-        arg0.values[0] =  rightPower;
-        arg0.values[1] =  leftPower;
+        arg.values[0] =  (float)leftPower;
+        arg.values[1] =  (float)rightPower;
 
-        super.onSensorChanged(arg0);
+        super.onSensorChanged(arg);
     }
 }

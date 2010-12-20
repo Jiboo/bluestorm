@@ -57,20 +57,6 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
         stop();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        capteurs.subscribe(Capteurs.TypesCapteurs.vWhellPower, this, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        capteurs.unsubscribe(Capteurs.TypesCapteurs.vWhellPower, this);
-    }
-
     // -------------------------------------------------------------------------
     // --- Evenements des capteurs
     // -------------------------------------------------------------------------
@@ -78,7 +64,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
     public void getWheelPower(SensorEvent event) {
         try {
             if(nxt.isConnected())
-                nxt.setSpeed((byte)event.values[1], (byte)event.values[0]);
+                nxt.setSpeed((byte)event.values[0], (byte)event.values[1]);
         }
         catch(Exception e) {
             Log.d("bluestorm", "", e);
@@ -128,6 +114,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
                 try {
                     nxt.connect();
                     nxt.emitTone(1000, 1000);
+                    capteurs.subscribe(Capteurs.TypesCapteurs.vWhellPower, Bluestorm.this, SensorManager.SENSOR_DELAY_NORMAL);
                     Bluestorm.this.changeView(game);
                 }
                 catch(Exception e) {
@@ -143,6 +130,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
         try {
             if(nxt != null) {
                 if(nxt.isConnected()) {
+                    capteurs.unsubscribe(Capteurs.TypesCapteurs.vWhellPower, this);
                     nxt.stop();
                     nxt.close();
                 }
