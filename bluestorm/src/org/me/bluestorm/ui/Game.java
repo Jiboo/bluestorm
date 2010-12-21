@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import org.me.bluestorm.Bluestorm;
+import org.me.bluestorm.com.Nxt;
 import org.me.bluestorm.music.Partition;
 
 /**
@@ -27,6 +28,9 @@ public class Game extends LinearLayout implements OnClickListener {
     boolean clawState;
 
     ProgressBar battery;
+
+    ProgressBar motorA;
+    ProgressBar motorB;
 
     Thread updateThread;
 
@@ -58,12 +62,16 @@ public class Game extends LinearLayout implements OnClickListener {
         ball.setChecked(false);
 
         battery = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
+        motorA = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
+        motorB = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
 
         addView(cycleClaw);
         addView(disconnect);
         addView(tone);
         addView(song);
         addView(battery);
+        addView(motorA);
+        addView(motorB);
     }
 
     public void start() {
@@ -75,6 +83,10 @@ public class Game extends LinearLayout implements OnClickListener {
                     {
                         battery.setProgress((int)(activity.getNxt().getBatteryLevel() * 100));
                         ball.setChecked(activity.getNxt().gotBall());
+                     
+                        int[] motors = activity.getNxt().getMotors();
+                        motorA.setProgress((motors[Nxt.PORT_A] / 2) + 50);
+                        motorB.setProgress((motors[Nxt.PORT_B] / 2) + 50);
                         // Mettre a jour les autres capteurs
                         sleep(500);
                     }
