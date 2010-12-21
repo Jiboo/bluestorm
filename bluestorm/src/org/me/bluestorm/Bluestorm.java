@@ -69,7 +69,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
                     nxt.setSpeed((byte) event.values[0], (byte) event.values[1]);
                 } else {
                     nxt.setSpeed((byte) -100, (byte) -100);
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                     nxt.setSpeed((byte) 0, (byte) 0);
                 }
             }
