@@ -108,7 +108,7 @@ public abstract class Capteur implements ICapteur{
                 }
             }
         } catch (Exception ex) {
-            Logger.getLogger(Capteur.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Capteur.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,7 +120,7 @@ public abstract class Capteur implements ICapteur{
                     method.invoke(listener, arg0, arg1);
                 }
         } catch (Exception ex) {
-            Logger.getLogger(Capteur.class.getName()).log(Level.WARNING, null, ex);
+            //Logger.getLogger(Capteur.class.getName()).log(Level.WARNING, null, ex);
         }
     }
 }
