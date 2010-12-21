@@ -72,6 +72,7 @@ public class Game extends LinearLayout implements OnClickListener {
         addView(battery);
         addView(motorA);
         addView(motorB);
+        addView(ball);
     }
 
     public void start() {
