@@ -77,7 +77,7 @@ public class Nxt implements INxt {
         Log.d("bluestorm", "Trame envoyée: " + sb.toString());
     }
 
-    private byte[] read() throws IOException {
+    private synchronized byte[] read() throws IOException {
         byte[] size_header = new byte[2];
         if(sock.getInputStream().read(size_header) == -1) throw new IOException("Erreur lors de la lecture de l'entete");
         int size = size_header[0] + (size_header[1]<<8);
@@ -229,7 +229,7 @@ public class Nxt implements INxt {
         setOutputState(PORT_C, (byte)(-80), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
     }
 
-    public boolean gotBall() throws IOException {
+    public synchronized boolean gotBall() throws IOException {
         getInputValues((byte)0);
         byte[] rep = read();
 
@@ -238,7 +238,7 @@ public class Nxt implements INxt {
         return rep[12] == 1;
     }
 
-    public double getBatteryLevel() throws IOException {
+    public synchronized double getBatteryLevel() throws IOException {
         byte[] ba = {
             (byte)0x02,
             (byte)0x00,
@@ -250,7 +250,7 @@ public class Nxt implements INxt {
         byte[] rep = read();
 
         assert(rep[0] == (byte)0x2 && rep[1] == (byte)0xB && rep[2] == (byte)0x0);
-        return (rep[3] + (rep[4]<<8)) / 9000.0;
+        return ((rep[3] & 0xFF) | ((rep[4] & 0xFF)<<8)) / 9000.0;
     }
 
     public void emitTone(int pFreq, int pDur) throws IOException, InterruptedException {
@@ -270,13 +270,13 @@ public class Nxt implements INxt {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public boolean hasFloor() throws IOException {
+    public synchronized boolean hasFloor() throws IOException {
         getInputValues((byte)2);
         byte[] rep = read();
 
         assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
 
-        return (rep[10] + (rep[11]<<8)) > 375;
+        return ((rep[10] & 0xFF) | ((rep[11] & 0xFF)<<8)) > 500;
     }
 
     public int[] getMotors()
