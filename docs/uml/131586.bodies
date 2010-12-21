@@ -1,0 +1,3 @@
+class Note
+!!!140418.java!!!	Note(in n : double, in d : double, in m : int)
+            note = n; delay = d; mul = m;

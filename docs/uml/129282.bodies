@@ -1,0 +1,162 @@
+class Nxt
+!!!137346.java!!!	Nxt()
+        adapter = BluetoothAdapter.getDefaultAdapter();
+
+        for(BluetoothDevice tmp : adapter.getBondedDevices()) {
+            if(tmp.getName().equals("NXT")) {
+                dev = tmp;
+                paired = true;
+                Log.d("bluestorm", "NXT trouvé: " + tmp.getAddress());
+            }
+        }
+!!!137474.java!!!	isPaired() : boolean
+        return paired;
+!!!137602.java!!!	isConnected() : boolean
+        return sock.getOutputStream() != null;
+!!!137730.java!!!	connect() : void
+        if(dev == null) throw new Exception("Pas de NXT associé!");
+
+        Log.d("bluestorm", "Ouverture de la socket");
+        try { sock = dev.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")); }
+        catch(Exception e) { throw new Exception("Impossible d'ouvrir la socket, avez vous activé le bluetooth sur votre téléphone?"); }
+        if(sock == null) throw new Exception("Problème lors de la création de la socket");
+
+        Log.d("bluestorm", "Connexion...");
+        try { sock.connect(); }
+        catch(Exception e) { throw new Exception("Impossible de se connecter au robot, verifier qu'il soit allumé et que le bluetooth soit activé"); }
+
+        setInputMode((byte)0, SENSOR_SWITCH, SENSOR_MODE_BOOLEAN);
+        // On fait pas le 1, le capteur d'obstacle pour l'instant, trop de boulot dessus
+        setInputMode((byte)2, SENSOR_LIGHT_ACTIVE, SENSOR_MODE_PCTFULLSCALE);
+        //setInputMode((byte)3, SENSOR_SOUND_DB, SENSOR_MODE_PCTFULLSCALE); Aucune utilité pour l'instant
+!!!137858.java!!!	close() : void
+        if(sock != null) {
+            try { sock.close(); }
+            catch(Exception e) { Log.e("bluestorm", "deconnexion impossible, lol"); }
+        }
+!!!137986.java!!!	send(inout ba : byte) : void
+        sock.getOutputStream().write(ba);
+        sock.getOutputStream().flush();
+
+        StringBuilder sb = new StringBuilder();
+        Formatter formater = new Formatter(sb);
+        for(byte b : ba)
+            formater.format("%2x ", b);
+        Log.d("bluestorm", "Trame envoyée: " + sb.toString());
+!!!138114.java!!!	read() : byte
+        byte[] size_header = new byte[2];
+        if(sock.getInputStream().read(size_header) == -1) throw new IOException("Erreur lors de la lecture de l'entete");
+        int size = size_header[0] + (size_header[1]<<8);
+
+        byte[] ba = new byte[size];
+        if(sock.getInputStream().read(ba) == -1) throw new IOException("Erreur lors de la lecture de la trame");
+
+        StringBuilder sb = new StringBuilder();
+        Formatter formater = new Formatter(sb);
+        for(byte b : ba)
+            formater.format("%2x ", b);
+        Log.d("bluestorm", "Trame lu: " + sb.toString());
+
+        return ba;
+!!!138242.java!!!	keepAlive() : void
+        byte[] ba = {
+            (byte)0x02,
+            (byte)0x00,
+            (byte)0x80, // Pas de réponse
+            (byte)0x0D, // KeepAlive
+        };
+        send(ba);
+!!!138370.java!!!	setOutputState(in port : byte, in power : byte, in output_mode : byte, in regul_mode : byte, in turn_ratio : byte, in run_state : byte, in limit : long) : void
+        byte[] ba = {
+            (byte)0x0c,
+            (byte)0x00,
+            (byte)0x80, // Pas de réponse
+            (byte)0x04, // SetOutputState
+            port,
+            power,
+            output_mode,
+            regul_mode,
+            turn_ratio,
+            run_state,
+            (byte)(limit & 0xFF), (byte)(limit>>8 & 0xFF), (byte)(limit>>16 & 0xFF), (byte)(limit>>24 & 0xFF),
+        };
+        send(ba);
+!!!138498.java!!!	setInputMode(in port : byte, in sensor_type : byte, in sensor_mode : byte) : void
+        byte[] ba = {
+            (byte)0x05,
+            (byte)0x00,
+            (byte)0x80, // Pas de réponse
+            (byte)0x05, // SetInputMode
+            port,
+            sensor_type,
+            sensor_mode
+        };
+        send(ba);
+!!!138626.java!!!	getInputValues(in port : byte) : void
+        byte[] ba = {
+            (byte)0x03,
+            (byte)0x00,
+            (byte)0x00, // Réponse
+            (byte)0x07, // GetInputValues
+            port
+        };
+        send(ba);
+!!!138754.java!!!	setSpeed(in pLeftSpeed : byte, in pRightSpeed : byte) : void
+        setOutputState(PORT_A, (byte)(pRightSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        setOutputState(PORT_B, (byte)(pLeftSpeed), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+!!!138882.java!!!	stop() : void
+        setOutputState(PORT_ALL, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
+!!!139010.java!!!	goForward() : void
+        setSpeed(STATIC_SPEED, STATIC_SPEED);
+!!!139138.java!!!	goBackward() : void
+        setSpeed((byte)(-STATIC_SPEED), (byte)(-STATIC_SPEED));
+!!!139266.java!!!	turnLeft() : void
+        setSpeed(STATIC_SPEED, (byte)(-STATIC_SPEED));
+!!!139394.java!!!	turnRight() : void
+        setSpeed((byte)(-STATIC_SPEED), STATIC_SPEED);
+!!!139522.java!!!	openClaw() : void
+        setOutputState(PORT_C, (byte)(STATIC_SPEED), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+        Thread.sleep(50);
+        setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
+!!!139650.java!!!	closeClaw() : void
+        setOutputState(PORT_C, (byte)(-80), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+!!!139778.java!!!	gotBall() : boolean
+        getInputValues((byte)0);
+        byte[] rep = read();
+
+        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
+
+        return rep[12] == 1;
+!!!139906.java!!!	getBatteryLevel() : double
+        byte[] ba = {
+            (byte)0x02,
+            (byte)0x00,
+            (byte)0x00, // Réponse
+            (byte)0x0B, // BatteryLevel
+        };
+        send(ba);
+
+        byte[] rep = read();
+
+        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0xB && rep[2] == (byte)0x0);
+        return (rep[3] + (rep[4]<<8)) / 9000.0;
+!!!140034.java!!!	emitTone(in pFreq : int, in pDur : int) : void
+        byte[] ba = {
+            (byte)0x06,
+            (byte)0x00,
+            (byte)0x80, // Pas de réponse
+            (byte)0x03, // Emit tone
+            (byte)(pFreq & (short)0xFF), (byte)(pFreq>>8 & (short)0xFF), // Freq (UWORD)
+            (byte)(pDur & (short)0xFF), (byte)(pDur>>8 & (short)0xFF) // Dur en ms (UWORD)
+        };
+        send(ba);
+        Thread.sleep(pDur);
+!!!140162.java!!!	getObstacleDistance() : short
+        throw new UnsupportedOperationException("Not supported yet.");
+!!!140290.java!!!	hasFloor() : boolean
+        getInputValues((byte)2);
+        byte[] rep = read();
+
+        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
+
+        return (rep[11] + (rep[10]<<8)) < 140;

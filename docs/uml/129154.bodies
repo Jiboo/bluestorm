@@ -1,39 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package org.me.bluestorm;
-
-import org.me.bluestorm.com.Nxt;
-import org.me.bluestorm.com.INxt;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.hardware.SensorEvent;
-import android.hardware.SensorManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-import org.me.bluestorm.Capteurs.Capteurs;
-import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListener;
-import org.me.bluestorm.ui.Game;
-import org.me.bluestorm.ui.Home;
-
-/**
- *
- * @author jiboo
- */
-public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListener
-{
-    INxt nxt;
-    Capteurs capteurs;
-    ProgressDialog progress;
-    Home home;
-    Game game;
-
-    @Override
-    public void onCreate(Bundle icicle) {
+class Bluestorm
+!!!128770.java!!!	onCreate(inout icicle : Bundle) : void
         super.onCreate(icicle);
 
         try {
@@ -48,24 +14,14 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
             alert(e.getMessage());
             Log.e("bluestorm", "Exception caught in onCreate:", e);
         }
-    }
-
-    @Override
-    public void onDestroy() {
+!!!128898.java!!!	onDestroy() : void
         super.onDestroy();
 
         stop();
-    }
-
-    // -------------------------------------------------------------------------
-    // --- Evenements des capteurs
-    // -------------------------------------------------------------------------
-
-    public void getWheelPower(SensorEvent event) {
+!!!129026.java!!!	getWheelPower(inout event : SensorEvent) : void
         try {
             if(nxt.isConnected()){
                 if(nxt.hasFloor()) {
-                    //doduzeocuebhsdo
                     nxt.setSpeed((byte) event.values[0], (byte) event.values[1]);
                 } else {
                     nxt.stop();
@@ -75,44 +31,19 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
         catch(Exception e) {
             Log.d("bluestorm", "", e);
         }
-    }
-
-    // -------------------------------------------------------------------------
-    // --- Utilitaires de l'ui
-    // -------------------------------------------------------------------------
-
-    /**
-     * Permet d'afficher un toast depuis un thread, trés utile.
-     * Si vous voulez afficher un thread depuis l' ui (exemple: dans onCreate, onDestroy)
-     * utiliser Toast.makeText dirrectement.
-     *
-     * http://stackoverflow.com/questions/3134683/android-toast-in-a-thread
-     * @param pMessage le text du toast a afficher
-     */
-    public void alert(final String pMessage) {
+!!!129154.java!!!	alert(in pMessage : String) : void
         runOnUiThread(new Runnable() {
             public void run() {
                 Toast.makeText(Bluestorm.this, pMessage,  Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void changeView(final View v) {
+!!!129282.java!!!	changeView(in v : View) : void
         runOnUiThread(new Runnable() {
             public void run() {
                 setContentView(v);
             }
         });
-    }
-
-    // -------------------------------------------------------------------------
-    // --- Evenements de l' ui
-    // -------------------------------------------------------------------------
-
-    /**
-     * Initie la connexion au robot
-     */
-    public void demarrerConnexion() {
+!!!129410.java!!!	demarrerConnexion() : void
         progress = ProgressDialog.show(this, "Veuillez patienter...", "Connexion en cours...", true, false);
         new Thread() {
             @Override
@@ -131,9 +62,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
                 progress.dismiss();
             }
         }.start();
-    }
-
-    public void stop() {
+!!!129538.java!!!	stop() : void
         try {
             if(nxt != null) {
                 if(nxt.isConnected()) {
@@ -148,9 +77,5 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
             Log.e("bluestorm", "Exception caught in onDestroy:", e);
         }
         Bluestorm.this.changeView(home);
-    }
-
-    public INxt getNxt() {
+!!!129666.java!!!	getNxt() : INxt
         return nxt;
-    }
-}

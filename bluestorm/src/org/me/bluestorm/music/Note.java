@@ -24,16 +24,16 @@ public class Note {
         public static final double SI = 61.8;*/
 
         public static final double DO = 16.35;
-        public static final double DOSharp = 17.32;
+        public static final double DODiese = 17.32;
         public static final double RE = 18.35;
-        public static final double RESharp = 19.45;
+        public static final double REDiese = 19.45;
         public static final double MI = 20.60;
         public static final double FA = 21.83;
-        public static final double FASharp = 23.12;
+        public static final double FADiese = 23.12;
         public static final double SOL = 24.5;
-        public static final double SOLSharp = 25.96;
+        public static final double SOLDiese = 25.96;
         public static final double LA = 27.5;
-        public static final double LASharp = 29.14;
+        public static final double LADiese = 29.14;
         public static final double SI = 30.87;
 
         public static final double CROCHE = 0.5;

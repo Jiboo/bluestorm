@@ -1,0 +1,24 @@
+class MainActivity
+!!!128258.java!!!	onCreate(inout icicle : Bundle) : void
+        super.onCreate(icicle);
+        this.hello = new TextView(this);
+        ISensorManager sensorManager = new Capteurs((SensorManager) getSystemService(SENSOR_SERVICE));
+//        sensorManager.subscribe(Capteurs.TypesCapteurs.orientation, this, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.subscribe(Capteurs.TypesCapteurs.vWhellPower, this, SensorManager.SENSOR_DELAY_NORMAL);
+!!!128386.java!!!	getOrientation(inout event : SensorEvent) : void
+//        afficher("orientation : ");
+//        String str = null;
+//        for ( float value : event.values){
+//            str+=value+" ; ";
+//        }
+//        afficher(str);
+!!!128514.java!!!	afficher(in s : String) : void
+        this.hello.setText(s);
+        setContentView(hello);
+!!!128642.java!!!	getWheelPower(inout event : SensorEvent) : void
+        afficher("wheel");
+        String str = null;
+        for ( float value : event.values){
+            str+=value+" ; ";
+        }
+        afficher(str);

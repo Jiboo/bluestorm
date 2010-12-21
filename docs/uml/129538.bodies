@@ -1,0 +1,22 @@
+class Home
+!!!141314.java!!!	Home(inout con : Bluestorm)
+        super(con);
+        activity = con;
+
+        setOrientation(LinearLayout.HORIZONTAL);
+        setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+
+        connexion = new Button(con);
+        connexion.setText("Connexion");
+        connexion.setOnClickListener(this);
+
+        text = new TextView(con);
+        text.setText("Vous devez avoir le NXT associé, et son nom doit être \"NXT\"");
+
+        addView(text);
+        addView(connexion);
+!!!141442.java!!!	onClick(inout arg : View) : void
+        if(arg == connexion) {
+            Log.d("bluestorm", "Connexion button clicked!");
+            activity.demarrerConnexion();
+        }

@@ -1,0 +1,64 @@
+class Capteur
+!!!130434.java!!!	Capteur(inout sensorManager : ISensorManager, in sensorType : int, in sensibility : int)
+        this.subsribedListeners = new ArrayList<ISensorListener>();
+        this.sensorManager = sensorManager;
+        this.sensorType    = sensorType;
+        this.sensibility   = sensibility;
+        //si la sensibilité n'a pas été définie on utilise la plus rapide
+         this.registerSensor(this.sensorType, sensibility<0?SensorManager.SENSOR_DELAY_FASTEST:sensibility);
+         this.isOn = true;
+!!!130562.java!!!	subscribe(inout listener : ISensorListener) : void
+        if ( this.isListener(listener) ){
+            this.subsribedListeners.add(listener);
+        }
+!!!130690.java!!!	unsubscribe(inout listener : ISensorListener) : void
+        if (this.isListener(listener)){
+            this.subsribedListeners.remove(listener);
+        }
+!!!130818.java!!!	pauseSensor() : void
+        this.unRegisterSensor();
+        this.isOn = false;
+!!!130946.java!!!	resumeSensor() : void
+        this.registerSensor(this.sensorType, this.sensibility);
+        this.isOn = true;
+!!!131074.java!!!	isOn() : boolean
+        return this.isOn;
+!!!131202.java!!!	registerSensor(in type : int, in delay : int) : void
+        Sensor sensor = this.sensorManager.getDefaultSensor(type);
+        this.sensorManager.registerListener(this, sensor, delay);
+!!!131330.java!!!	unRegisterSensor() : void
+        this.sensorManager.unregisterListener(this);
+!!!131458.java!!!	isListener(inout listener : ISensorListener) : boolean
+        //On boucle sur la liste des interfaces du listener
+        for ( int i=0 ; i < listener.getClass().getInterfaces().length ; ++i){
+            //Si listener implémente la bonne interface on l'ajoute puis on sort de la boucle, sinon on continue la boucle ou on sort de la méthode
+            if ( listener.getClass().getInterfaces()[i].getCanonicalName().equals(this.listenerType) ){
+                return true;
+            }
+        }
+        return false;
+!!!131586.java!!!	onSensorChanged(inout arg0 : SensorEvent) : void
+        try {
+            //On récupère la/les méthode(s) de l'interface du listener
+            Method[] methods = Class.forName(this.listenerType).getDeclaredMethods();
+            //pour chaque méthode de l'interface abonnable
+            for ( Method method : methods ){
+                //Pour tous les abonnés
+                for ( ISensorListener listener : this.subsribedListeners ){
+                    //On appelle la méthode définie dans l'interface
+                    method.invoke(listener, arg0);
+                }
+            }
+        } catch (Exception ex) {
+            //Logger.getLogger(Capteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+!!!131714.java!!!	onAccuracyChanged(inout arg0 : Sensor, in arg1 : int) : void
+        try {
+            //On récupère la/les méthode(s) de l'interface du listener
+            Method method = Class.forName(this.listenerType).getDeclaredMethod("onAccuracyChanged", Sensor.class, int.class);
+                for ( ISensorListener listener : this.subsribedListeners ){
+                    method.invoke(listener, arg0, arg1);
+                }
+        } catch (Exception ex) {
+            //Logger.getLogger(Capteur.class.getName()).log(Level.WARNING, null, ex);
+        }
