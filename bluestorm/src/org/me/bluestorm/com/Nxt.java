@@ -276,6 +276,11 @@ public class Nxt implements INxt {
 
         assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
 
-        return (rep[11] + (rep[10]<<8)) < 140;
+        return (rep[10] + (rep[11]<<8)) > 375;
+    }
+
+    public int[] getMotors()
+    {
+        return new int[3];
     }
 }
