@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import org.me.bluestorm.Bluestorm;
 import org.me.bluestorm.music.Partition;
 
@@ -20,6 +21,10 @@ public class Game extends LinearLayout implements OnClickListener {
     Button tone;
     Button song;
     boolean clawState;
+
+    ProgressBar battery;
+
+    Thread updateThread;
 
     public Game(Bluestorm con) {
         super(con);
@@ -44,10 +49,40 @@ public class Game extends LinearLayout implements OnClickListener {
         song.setText("Song");
         song.setOnClickListener(this);
 
+        battery = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
+
         addView(cycleClaw);
         addView(disconnect);
         addView(tone);
         addView(song);
+        addView(battery);
+    }
+
+    public void start() {
+        updateThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(true)
+                    {
+                        battery.setProgress((int)(activity.getNxt().getBatteryLevel() * 100));
+                        // Mettre a jour les autres capteurs
+                        sleep(500);
+                    }
+                }
+                catch(Exception e) {
+                    Log.d("bluestorm", "Caught in game update thread", e);
+                }
+            }
+        };
+        updateThread.start();
+    }
+
+    @Override
+    protected void finalize() throws Throwable
+    {
+      updateThread.stop();
+      super.finalize(); //not necessary if extending Object.
     }
 
     public void onClick(View arg) {
@@ -64,7 +99,6 @@ public class Game extends LinearLayout implements OnClickListener {
             }
             else if(arg == tone) {
                 activity.getNxt().emitTone(400, 1000);
-                Log.d("bluestorm", String.format("%b", activity.getNxt().hasFloor()));
             }
             else if(arg == song) {
                 Partition.jinglebells.play(activity.getNxt());
