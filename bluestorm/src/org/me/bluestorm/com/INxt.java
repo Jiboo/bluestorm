@@ -117,5 +117,8 @@ public interface INxt
      */
     void emitTone(int pFreq, int pDuration) throws IOException, InterruptedException;
 
-    //int[] getMotors();
+    /**
+     * @return la puissance de chaque moteur, 0=A 1=B ...
+     */
+    int[] getMotors();
 }
