@@ -1,0 +1,81 @@
+class Bluestorm
+!!!128770.java!!!	onCreate(inout icicle : Bundle) : void
+        super.onCreate(icicle);
+
+        try {
+            capteurs = new Capteurs((SensorManager) getSystemService(SENSOR_SERVICE));
+            nxt = new Nxt();
+            home = new Home(this);
+            game = new Game(this);
+
+            setContentView(home);
+        }
+        catch(Exception e) {
+            alert(e.getMessage());
+            Log.e("bluestorm", "Exception caught in onCreate:", e);
+        }
+!!!128898.java!!!	onDestroy() : void
+        super.onDestroy();
+
+        stop();
+!!!129026.java!!!	getWheelPower(inout event : SensorEvent) : void
+        try {
+            if(nxt.isConnected()){
+                if(nxt.hasFloor()) {
+                    nxt.setSpeed((byte) event.values[0], (byte) event.values[1]);
+                } else {
+                    nxt.stop();
+                }
+            }
+        }
+        catch(Exception e) {
+            Log.d("bluestorm", "", e);
+        }
+!!!129154.java!!!	alert(in pMessage : String) : void
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(Bluestorm.this, pMessage,  Toast.LENGTH_SHORT).show();
+            }
+        });
+!!!129282.java!!!	changeView(in v : View) : void
+        runOnUiThread(new Runnable() {
+            public void run() {
+                setContentView(v);
+            }
+        });
+!!!129410.java!!!	demarrerConnexion() : void
+        progress = ProgressDialog.show(this, "Veuillez patienter...", "Connexion en cours...", true, false);
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    nxt.connect();
+                    nxt.emitTone(1000, 1000);
+                    capteurs.subscribe(Capteurs.TypesCapteurs.vWhellPower, Bluestorm.this, SensorManager.SENSOR_DELAY_NORMAL);
+                    Bluestorm.this.changeView(game);
+                    game.start();
+                }
+                catch(Exception e) {
+                    Log.e("bluestorm", "Erreur lors de la connexion", e);
+                    alert(e.getMessage());
+                }
+                progress.dismiss();
+            }
+        }.start();
+!!!129538.java!!!	stop() : void
+        try {
+            if(nxt != null) {
+                if(nxt.isConnected()) {
+                    capteurs.unsubscribe(Capteurs.TypesCapteurs.vWhellPower, this);
+                    nxt.stop();
+                    nxt.close();
+                }
+            }
+        }
+        catch(Exception e) {
+            alert(e.getMessage());
+            Log.e("bluestorm", "Exception caught in onDestroy:", e);
+        }
+        Bluestorm.this.changeView(home);
+!!!129666.java!!!	getNxt() : INxt
+        return nxt;

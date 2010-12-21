@@ -55,10 +55,10 @@ public class Partition {
         new Note(Note.DO, Note.CROCHE, 16),
         new Note(Note.DO, Note.NOIRE, 16),
 
-        new Note(Note.SOLSharp, Note.NOIRE, 15),
-        new Note(Note.LASharp, Note.NOIRE, 15),
+        new Note(Note.SOLDiese, Note.NOIRE, 15),
+        new Note(Note.LADiese, Note.NOIRE, 15),
         new Note(Note.DO, Note.NOIRE, 16),
-        new Note(Note.LASharp, Note.CROCHE, 15),
+        new Note(Note.LADiese, Note.CROCHE, 15),
         new Note(Note.DO, Note.NOIRE, 16),
     });
 

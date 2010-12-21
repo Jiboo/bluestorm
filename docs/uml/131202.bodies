@@ -1,0 +1,5 @@
+class Orientation
+!!!134658.java!!!	Orientation(in sensibility : int, inout sensorManager : ISensorManager)
+        super(sensorManager, Sensor.TYPE_ORIENTATION, sensibility);
+        //On indique le type de listener qu'il faut. Pour la fonction subscribe, la classe générique Capteur s'en occupe
+        this.listenerType = IOrientationListener.class.getCanonicalName();

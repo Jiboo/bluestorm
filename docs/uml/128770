@@ -1,0 +1,448 @@
+format 73
+"interfaces" // me::bluestorm::Capteurs::tools::interfaces
+  revision 1
+  modified_by 2 "sangskaal"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  java_dir "/home/sangskaal/Work/projet10/bluestorm/bluestorm/src/org/me/bluestorm/Capteurs/tools/interfaces/"
+  java_package "org.me.bluestorm.Capteurs.tools.interfaces"
+  classview 128258 "interfaces"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 128258 "IOrientationListener"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "@author benoît caruso"
+      classrelation 128130 // <generalisation>
+	relation 128130 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 128130 // <generalisation>
+	  b parent class_ref 128386 // ISensorListener
+      end
+
+      operation 128002 "getOrientation"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "event" explicit_type "SensorEvent"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 128386 "ISensorListener"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "@author benoît caruso"
+    end
+
+    class 128514 "IVirtualSensorWheelPowerListener"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+@author sangskaal"
+      classrelation 128386 // <generalisation>
+	relation 128386 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 128386 // <generalisation>
+	  b parent class_ref 128386 // ISensorListener
+      end
+
+      operation 128130 "getWheelPower"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "event" explicit_type "SensorEvent"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 130562 "ICapteur"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Interface pour manipuler un capteur
+@author benoît caruso"
+      classrelation 129410 // <generalisation>
+	relation 129410 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 129410 // <generalisation>
+	  b parent class_ref 130690 // SensorEventListener
+      end
+
+      operation 129794 "subscribe"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "listener" type class_ref 128386 // ISensorListener
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " Ajoute un listener au capteur "
+      end
+
+      operation 129922 "unsubscribe"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "listener" type class_ref 128386 // ISensorListener
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " Supprime le listener du capteur "
+      end
+
+      operation 130050 "pauseSensor"
+	public explicit_return_type "void"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " met en pause le capteur. par ex pour pause dans appli "
+      end
+
+      operation 130178 "resumeSensor"
+	public explicit_return_type "void"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " remet en marche le capteur "
+      end
+
+      operation 130306 "isOn"
+	public explicit_return_type "boolean"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " etat du capteur "
+      end
+    end
+
+    class 130818 "ISensorManager"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Interface du gestionnaire de capteurs
+@author benoît caruso"
+      operation 131842 "subscribe"
+	public explicit_return_type "void"
+	nparams 3
+	  param inout name "type" type class_ref 130946 // TypesCapteurs
+	  param inout name "subscribingListener" type class_ref 128386 // ISensorListener
+	  param in name "sensibility" explicit_type "int"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " Permet de s'abonner a un capteur "
+      end
+
+      operation 131970 "unsubscribe"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "type" type class_ref 130946 // TypesCapteurs
+	  param inout name "unsubscribingListener" type class_ref 128386 // ISensorListener
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 132098 "pauseCapteur"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "type" type class_ref 130946 // TypesCapteurs
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment " Permet de mettre un capteur en \"pause\" pour economiser des ressources dans l'appli "
+      end
+
+      operation 132226 "resumeCapteur"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "type" type class_ref 130946 // TypesCapteurs
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 132354 "getDefaultSensor"
+	public explicit_return_type "Sensor"
+	nparams 1
+	  param in name "type" explicit_type "int"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 132482 "registerListener"
+	public explicit_return_type "void"
+	nparams 3
+	  param inout name "listener" explicit_type "SensorEventListener"
+	  param inout name "sensor" explicit_type "Sensor"
+	  param in name "delay" explicit_type "int"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 132610 "unregisterListener"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "listener" explicit_type "SensorEventListener"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 131458 "IGyroscopeListener"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Si une classe veut écouter le gyroscope elle doit implémenter cette interface
+@author benoît caruso"
+      classrelation 130818 // <generalisation>
+	relation 130818 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 130818 // <generalisation>
+	  b parent class_ref 128386 // ISensorListener
+      end
+
+      operation 135042 "getGyroscope"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "event" explicit_type "SensorEvent"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 128002 "interfaces"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 128002 "ISensorListener"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 128386 // ISensorListener
+      end
+    end
+
+    artifact 128130 "IOrientationListener"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import android.hardware.SensorEvent;
+${definition}"
+      associated_classes
+	class_ref 128258 // IOrientationListener
+      end
+    end
+
+    artifact 128258 "IVirtualSensorWheelPowerListener"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import android.hardware.SensorEvent;
+${definition}"
+      associated_classes
+	class_ref 128514 // IVirtualSensorWheelPowerListener
+      end
+      comment "To change this template, choose Tools | Templates
+and open the template in the editor."
+    end
+
+    artifact 128898 "ICapteur"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import android.hardware.SensorEventListener;
+${definition}"
+      associated_classes
+	class_ref 130562 // ICapteur
+      end
+    end
+
+    artifact 129154 "ISensorManager"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import android.hardware.Sensor;
+import android.hardware.SensorEventListener;
+import org.me.bluestorm.Capteurs.Capteurs.TypesCapteurs;
+${definition}"
+      associated_classes
+	class_ref 130818 // ISensorManager
+      end
+      comment "To change this template, choose Tools | Templates
+and open the template in the editor."
+    end
+
+    artifact 129794 "IGyroscopeListener"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import android.hardware.SensorEvent;
+${definition}"
+      associated_classes
+	class_ref 131458 // IGyroscopeListener
+      end
+    end
+  end
+end

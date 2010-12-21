@@ -1,39 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package org.me.bluestorm.Capteurs;
-
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import org.me.bluestorm.Capteurs.tools.interfaces.ISensorManager;
-import org.me.bluestorm.Capteurs.tools.interfaces.IVirtualSensorWheelPowerListener;
-
-/**
- * Capteur virtuel
- * pour ce capteur on envoi en values[0] rightPower, la puissance de la roue de droite
- *                             values[1] leftPower,  la puissance de la roue de gauche
- * @author sangskaal
- */
-public class VirtualSensorWheelPower extends Capteur{
-    /** tolérance sur angle accélération */
-    public static final float ANGLE_1 = 45;
-    /** tolérance sur angle rotation */
-    public static final float ANGLE_2 = 30;
-
-    /**
-     * @param sensibility ( 0 plus rapide - 3 plus lent )
-     * @param sensorManager
-     */
-    public VirtualSensorWheelPower(int sensibility, ISensorManager sensorManager){
+class VirtualSensorWheelPower
+!!!134786.java!!!	VirtualSensorWheelPower(in sensibility : int, inout sensorManager : ISensorManager)
         super(sensorManager, Sensor.TYPE_ORIENTATION, sensibility);
         //On indique le type de listener qu'il faut. Pour la fonction subscribe, la classe générique Capteur s'en occupe
         this.listenerType = IVirtualSensorWheelPowerListener.class.getCanonicalName();
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent arg){
+!!!134914.java!!!	onSensorChanged(inout arg : SensorEvent) : void
 
         double leftPower = 0., rightPower = 0.;
 
@@ -72,5 +42,3 @@ public class VirtualSensorWheelPower extends Capteur{
         arg.values[1] =  (float)rightPower;
 
         super.onSensorChanged(arg);
-    }
-}

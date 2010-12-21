@@ -1,0 +1,65 @@
+class Capteurs
+!!!132738.java!!!	Capteurs(inout sensorManager : SensorManager)
+        this.sensorManager = sensorManager;
+!!!132866.java!!!	subscribe(inout type : TypesCapteurs, inout subscribingListener : ISensorListener, in sensibility : int) : void
+        switch (type){
+            case orientation :
+                this.subscribeOrientation(subscribingListener, sensibility);
+            break;
+            case vWhellPower:
+                this.subscribeVWheelPower(subscribingListener, sensibility);
+            break;
+            default : break;
+        }
+!!!132994.java!!!	unsubscribe(inout type : TypesCapteurs, inout unsubscribingListener : ISensorListener) : void
+        switch (type){
+            case orientation :
+                this.unsubscribeOrientation(unsubscribingListener);
+            break;
+            case vWhellPower:
+                this.unsubscribeVWheelPower(unsubscribingListener);
+            break;
+            default : break;
+        }
+!!!133122.java!!!	pauseCapteur(inout type : TypesCapteurs) : void
+        if (this.getCapteur(type) == null){ return; }
+        this.getCapteur(type).pauseSensor();
+!!!133250.java!!!	resumeCapteur(inout type : TypesCapteurs) : void
+        if (this.getCapteur(type) == null){ return; }
+        this.getCapteur(type).resumeSensor();
+!!!133378.java!!!	subscribeGyroscope(inout subscribingListener : ISensorListener, in sensibility : int) : void
+        //instanciation on demand
+        if (this.gyroscope == null) {
+            this.gyroscope = new Gyroscope(sensibility, this);
+        }
+        this.gyroscope.subscribe(subscribingListener);
+!!!133506.java!!!	subscribeOrientation(inout subscribingListener : ISensorListener, in sensibility : int) : void
+        //instanciation on demand
+        if (this.orientation == null) {
+            this.orientation = new Orientation(sensibility, this);
+        }
+        this.orientation.subscribe(subscribingListener);
+!!!133634.java!!!	subscribeVWheelPower(inout subscribingListener : ISensorListener, in sensibility : int) : void
+        //instanciation on demand
+        if (this.vWheelPower == null) {
+            this.vWheelPower = new VirtualSensorWheelPower(sensibility, this);
+        }
+        this.vWheelPower.subscribe(subscribingListener);
+!!!133762.java!!!	unsubscribeOrientation(inout unsubscribingListener : ISensorListener) : void
+        if (this.orientation == null){ return; }
+        this.orientation.unsubscribe(unsubscribingListener);
+!!!133890.java!!!	unsubscribeVWheelPower(inout unsubscribingListener : ISensorListener) : void
+        if (this.vWheelPower == null){ return; }
+        this.vWheelPower.unsubscribe(unsubscribingListener);
+!!!134018.java!!!	getCapteur(inout type : TypesCapteurs) : ICapteur
+        switch (type){
+            case orientation : return this.orientation;
+            case vWhellPower : return this.vWheelPower;
+            default          : return null;
+        }
+!!!134146.java!!!	getDefaultSensor(in type : int) : Sensor
+        return this.sensorManager.getDefaultSensor(type);
+!!!134274.java!!!	registerListener(inout listener : SensorEventListener, inout sensor : Sensor, in delay : int) : void
+        this.sensorManager.registerListener(listener , sensor, delay);
+!!!134402.java!!!	unregisterListener(inout listener : SensorEventListener) : void
+        this.sensorManager.unregisterListener(listener);

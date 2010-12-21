@@ -1,0 +1,473 @@
+format 73
+"music" // me::bluestorm::music
+  revision 1
+  modified_by 2 "sangskaal"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  java_dir "/home/sangskaal/Work/projet10/bluestorm/bluestorm/src/org/me/bluestorm/music/"
+  java_package "org.me.bluestorm.music"
+  classview 128898 "music"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 131586 "Note"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+@author jiboo"
+      attribute 135426 "DO"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 16.35"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "public static final double DO = 32.7;
+public static final double DOSharp = 34.6;
+public static final double RE = 36.7;
+public static final double RESharp = 38.9;
+public static final double MI = 41.2;
+public static final double FA = 43.7;
+public static final double FASharp = 46.2;
+public static final double SOL = 49;
+public static final double SOLSharp = 51.9;
+public static final double LA = 55;
+public static final double LASharp = 58.3;
+public static final double SI = 61.8;"
+      end
+
+      attribute 135554 "DOSharp"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 17.32"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135682 "RE"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 18.35"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135810 "RESharp"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 19.45"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135938 "MI"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 20.60"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136066 "FA"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 21.83"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136194 "FASharp"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 23.12"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136322 "SOL"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 24.5"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136450 "SOLSharp"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 25.96"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136578 "LA"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 27.5"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136706 "LASharp"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 29.14"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136834 "SI"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 30.87"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136962 "CROCHE"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 0.5"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137090 "NOIRE"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137218 "BLANCHE"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 2"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137346 "RONDE"
+	class_attribute const_attribute public explicit_type "double"
+	init_value " 4"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137474 "note"
+	public explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137602 "delay"
+	public explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137730 "mul"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 140418 "Note"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "n" explicit_type "double"
+	  param in name "d" explicit_type "double"
+	  param in name "m" explicit_type "int"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 131714 "Partition"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+@author jiboo"
+      classrelation 131074 // notes (<unidirectional association>)
+	relation 131074 --->
+	  a role_name "notes" multiplicity "[]" public
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	    classrelation_ref 131074 // notes (<unidirectional association>)
+	  b parent class_ref 131586 // Note
+      end
+
+      attribute 137858 "tempo"
+	public explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 140546 "Partition"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "t" explicit_type "int"
+	  param inout name "pNotes" type class_ref 131586 // Note
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1}[] ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 140674 "play"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "nxt" type class_ref 129794 // INxt
+	nexceptions 1
+	  explicit_exception "IOException"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}final ${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 131202 // victory (<unidirectional association>)
+	relation 131202 --->
+	  a role_name "victory" init_value " new Partition(200, new Note[] {
+        new Note(Note.DO, Note.CROCHE, 16),
+        new Note(Note.DO, Note.CROCHE, 16),
+        new Note(Note.DO, Note.CROCHE, 16),
+        new Note(Note.DO, Note.NOIRE, 16),
+
+        new Note(Note.SOLSharp, Note.NOIRE, 15),
+        new Note(Note.LASharp, Note.NOIRE, 15),
+        new Note(Note.DO, Note.NOIRE, 16),
+        new Note(Note.LASharp, Note.CROCHE, 15),
+        new Note(Note.DO, Note.NOIRE, 16),
+    })" class_relation public
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 131202 // victory (<unidirectional association>)
+	  b parent class_ref 131714 // Partition
+      end
+
+      classrelation 131330 // jinglebells (<unidirectional association>)
+	relation 131330 --->
+	  a role_name "jinglebells" init_value " new Partition(100, new Note[] {
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.SOL, Note.CROCHE, 16),
+        new Note(Note.DO, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.SOL, Note.NOIRE, 16),
+
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.SOL, Note.CROCHE, 16),
+        new Note(Note.DO, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.MI, Note.NOIRE, 16),
+
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.MI, Note.CROCHE, 16),
+        new Note(Note.SOL, Note.CROCHE, 16),
+        new Note(Note.SOL, Note.CROCHE, 16),
+        new Note(Note.FA, Note.CROCHE, 16),
+        new Note(Note.RE, Note.CROCHE, 16),
+        new Note(Note.DO, Note.RONDE, 16),
+    })" class_relation public
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 131330 // jinglebells (<unidirectional association>)
+	  b parent class_ref 131714 // Partition
+      end
+    end
+  end
+
+  deploymentview 128642 "music"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 130178 "Note"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 131586 // Note
+      end
+      comment "To change this template, choose Tools | Templates
+and open the template in the editor."
+    end
+
+    artifact 130306 "Partition"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+import org.me.bluestorm.com.INxt;
+import android.util.Log;
+import java.io.IOException;
+${definition}"
+      associated_classes
+	class_ref 131714 // Partition
+      end
+      comment "To change this template, choose Tools | Templates
+and open the template in the editor."
+    end
+  end
+end

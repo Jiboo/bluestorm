@@ -1,0 +1,23 @@
+window_sizes 1366 716 509 851 638 0
+diagrams
+  active  classdiagram_ref 134530 // capteurs
+    1221 630 70 0 83 78
+end
+show_stereotypes
+selected class_ref 129154 // Bluestorm
+open
+  classview_ref 128002 // androidapplication
+  artifact_ref 128386 // MainActivity
+  class_ref 131458 // IGyroscopeListener
+  classview_ref 128642 // Capteurs
+  deploymentview_ref 128386 // Capteurs
+  classview_ref 135554 // capteurs
+  class_ref 129154 // Bluestorm
+  classview_ref 128514 // com
+  classview_ref 128770 // ui
+  deploymentview_ref 128258 // bluestorm
+  classview_ref 128898 // music
+  deploymentview_ref 128642 // music
+  classview_ref 128130 // unknown
+end
+end
