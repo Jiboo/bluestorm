@@ -10,11 +10,9 @@ import java.io.IOException;
 import java.util.Formatter;
 import java.util.UUID;
 
-//#define assertex(CODE, MESSAGE)  try { CODE; } catch(Exception e) { Log.e("bluestorm", MESSAGE); }
-
 /**
  *
- * @author root
+ * @author Jiboo
  */
 public class Nxt implements INxt {
     BluetoothAdapter adapter = null;
@@ -55,7 +53,10 @@ public class Nxt implements INxt {
         try { sock.connect(); }
         catch(Exception e) { throw new Exception("Impossible de se connecter au robot, verifier qu'il soit allumé et que le bluetooth soit activé"); }
 
-        setInputMode((byte)0, SENSOR_SWITCH, SENSOR_BOOLEANMODE);
+        setInputMode((byte)0, SENSOR_SWITCH, SENSOR_MODE_BOOLEAN);
+        // On fait pas le 1, le capteur d'obstacle pour l'instant, trop de boulot dessus
+        setInputMode((byte)2, SENSOR_LIGHT_ACTIVE, SENSOR_MODE_PCTFULLSCALE);
+        setInputMode((byte)3, SENSOR_SOUND_DB, SENSOR_MODE_PCTFULLSCALE);
     }
 
     public void close() {
@@ -157,14 +158,15 @@ public class Nxt implements INxt {
     public static final byte SENSOR_LOWSPEED_9V = 0x0B;
     public static final byte SENSOR_NO_OF_SENSOR_TYPES = 0x0C;
 
-    public static final byte SENSOR_RAWMOD = 0x00;
-    public static final byte SENSOR_BOOLEANMODE = 0x20;
-    public static final byte SENSOR_TRANSITIONCNTMODE = 0x40;
-    public static final byte SENSOR_PERIODCOUNTERMODE = 0x60;
-    public static final byte SENSOR_PCTFULLSCALEMODE = (byte)0x80;
-    public static final byte SENSOR_CELCIUSMODE = (byte)0xA0;
-    public static final byte SENSOR_FAHRENHEITMODE = (byte)0xC0;
-    public static final byte SENSOR_ANGLESTEPSMODE = (byte)0xE0;
+    public static final byte SENSOR_MODE_RAW = 0x00;
+    public static final byte SENSOR_MODE_BOOLEAN = 0x20;
+    public static final byte SENSOR_MODE_TRANSITIONCNT = 0x40;
+    public static final byte SENSOR_MODE_PERIODCOUNTER = 0x60;
+    public static final byte SENSOR_MODE_PCTFULLSCALE = (byte)0x80;
+    public static final byte SENSOR_MODE_CELCIUS = (byte)0xA0;
+    public static final byte SENSOR_MODE_FAHRENHEIT = (byte)0xC0;
+    public static final byte SENSOR_MODE_ANGLESTEPS = (byte)0xE0;
+    
     public static final byte SENSOR_SLOPEMASK = (byte)0x1F;
     public static final byte SENSOR_MODEMASK = (byte)0xE0;
 
@@ -236,10 +238,6 @@ public class Nxt implements INxt {
         return rep[12] == 1;
     }
 
-    public short getObstacleDistance() throws IOException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     public double getBatteryLevel() throws IOException {
         byte[] ba = {
             (byte)0x02,
@@ -266,5 +264,18 @@ public class Nxt implements INxt {
         };
         send(ba);
         Thread.sleep(pDur);
+    }
+
+    public short getObstacleDistance() throws IOException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public boolean hasFloor() throws IOException {
+        getInputValues((byte)2);
+        byte[] rep = read();
+
+        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
+
+        return (rep[11] + (rep[10]<<8)) < 140;
     }
 }

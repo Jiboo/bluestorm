@@ -21,6 +21,12 @@ public interface INxt
     public boolean isConnected() throws IOException;
 
     /**
+     * @return Vrai si le capteur de lumière (sous le robot) detecte le sol (de l'obscuritée)
+     * @throws IOException
+     */
+    public boolean hasFloor() throws IOException;
+
+    /**
      * Demmare la connection vers le NXT
      * @return Vrai si la connexion à réussi
      * @throws IOException

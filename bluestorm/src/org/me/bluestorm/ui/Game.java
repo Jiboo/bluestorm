@@ -64,6 +64,7 @@ public class Game extends LinearLayout implements OnClickListener {
             }
             else if(arg == tone) {
                 activity.getNxt().emitTone(400, 1000);
+                Log.d("bluestorm", String.format("%b", activity.getNxt().hasFloor()));
             }
             else if(arg == song) {
                 Partition.jinglebells.play(activity.getNxt());
