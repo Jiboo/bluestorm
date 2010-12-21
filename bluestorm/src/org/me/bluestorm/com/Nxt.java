@@ -21,6 +21,10 @@ public class Nxt implements INxt {
 
     boolean paired = false;
 
+    public int motorAspeed = 0;
+    public int motorBspeed = 0;
+    public int motorCspeed = 0;
+
     public Nxt() throws IOException {
         adapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -141,6 +145,10 @@ public class Nxt implements INxt {
             run_state,
             (byte)(limit & 0xFF), (byte)(limit>>8 & 0xFF), (byte)(limit>>16 & 0xFF), (byte)(limit>>24 & 0xFF),
         };
+        if(port == PORT_A) motorAspeed = power;
+        if(port == PORT_B) motorBspeed = power;
+        if(port == PORT_C) motorCspeed = power;
+
         send(ba);
     }
 
@@ -281,6 +289,6 @@ public class Nxt implements INxt {
 
     public int[] getMotors()
     {
-        return new int[3];
+        return new int[] { motorAspeed, motorBspeed, motorCspeed };
     }
 }
