@@ -26,6 +26,8 @@ public class Game extends LinearLayout implements OnClickListener {
 
     TextView ball_label;
     CheckBox  ball;
+    //etat du capteur d'intensité lumineuse
+    CheckBox  floor;
     
     boolean clawState;
 
@@ -62,6 +64,10 @@ public class Game extends LinearLayout implements OnClickListener {
         ball = new CheckBox(activity);
         ball.setClickable(false);
         ball.setChecked(false);
+
+        floor = new CheckBox(activity);
+        floor.setClickable(false);
+        floor.setChecked(false);
 
         battery = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
 
@@ -115,11 +121,13 @@ public class Game extends LinearLayout implements OnClickListener {
                         // Les modules permettent d'eviter de faire trop de demande sur le bluetooth (send_read est synchronized)
 
                         if(count % 5 == 0) {
-                            final boolean status = activity.getNxt().gotBall();
+                            final boolean ball_val = activity.getNxt().gotBall();
+                            final boolean floor_val = activity.getNxt().gotBall();
                             activity.runOnUiThread( new Runnable() {
                                 @Override
                                 public void run() {
-                                    ball.setChecked(status);
+                                    ball.setChecked(ball_val);
+                                    floor.setChecked(floor_val);
                                 }
                             });
                         }
