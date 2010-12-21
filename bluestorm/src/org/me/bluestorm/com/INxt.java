@@ -116,4 +116,6 @@ public interface INxt
      * @throws IOException erreur sur le socket
      */
     void emitTone(int pFreq, int pDuration) throws IOException, InterruptedException;
+
+    //int[] getMotors();
 }

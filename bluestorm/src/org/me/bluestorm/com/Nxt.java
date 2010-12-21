@@ -56,7 +56,7 @@ public class Nxt implements INxt {
         setInputMode((byte)0, SENSOR_SWITCH, SENSOR_MODE_BOOLEAN);
         // On fait pas le 1, le capteur d'obstacle pour l'instant, trop de boulot dessus
         setInputMode((byte)2, SENSOR_LIGHT_ACTIVE, SENSOR_MODE_PCTFULLSCALE);
-        setInputMode((byte)3, SENSOR_SOUND_DB, SENSOR_MODE_PCTFULLSCALE);
+        //setInputMode((byte)3, SENSOR_SOUND_DB, SENSOR_MODE_PCTFULLSCALE); Aucune utilité pour l'instant
     }
 
     public void close() {

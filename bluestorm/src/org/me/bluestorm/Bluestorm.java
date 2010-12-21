@@ -116,6 +116,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
                     nxt.emitTone(1000, 1000);
                     capteurs.subscribe(Capteurs.TypesCapteurs.vWhellPower, Bluestorm.this, SensorManager.SENSOR_DELAY_NORMAL);
                     Bluestorm.this.changeView(game);
+                    game.start();
                 }
                 catch(Exception e) {
                     Log.e("bluestorm", "Erreur lors de la connexion", e);
