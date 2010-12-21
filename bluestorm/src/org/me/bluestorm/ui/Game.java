@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import org.me.bluestorm.Bluestorm;
@@ -16,10 +17,13 @@ import org.me.bluestorm.music.Partition;
 public class Game extends LinearLayout implements OnClickListener {
 
     Bluestorm activity;
-    Button cycleClaw;
-    Button disconnect;
-    Button tone;
-    Button song;
+    Button    cycleClaw;
+    Button    disconnect;
+    Button    tone;
+    Button    song;
+    //représente l'état du capteur de pression 
+    CheckBox  ball;
+    
     boolean clawState;
 
     ProgressBar battery;
@@ -49,6 +53,10 @@ public class Game extends LinearLayout implements OnClickListener {
         song.setText("Song");
         song.setOnClickListener(this);
 
+        ball = new CheckBox(activity);
+        ball.setClickable(false);
+        ball.setChecked(false);
+
         battery = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
 
         addView(cycleClaw);
@@ -66,6 +74,7 @@ public class Game extends LinearLayout implements OnClickListener {
                     while(true)
                     {
                         battery.setProgress((int)(activity.getNxt().getBatteryLevel() * 100));
+                        ball.setChecked(activity.getNxt().gotBall());
                         // Mettre a jour les autres capteurs
                         sleep(500);
                     }
