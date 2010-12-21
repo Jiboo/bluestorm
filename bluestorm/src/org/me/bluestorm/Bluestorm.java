@@ -65,6 +65,7 @@ public class Bluestorm extends Activity implements IVirtualSensorWheelPowerListe
         try {
             if(nxt.isConnected()){
                 if(nxt.hasFloor()) {
+                    //doduzeocuebhsdo
                     nxt.setSpeed((byte) event.values[0], (byte) event.values[1]);
                 } else {
                     nxt.stop();
