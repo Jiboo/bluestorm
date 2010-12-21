@@ -24,6 +24,8 @@ public class Game extends LinearLayout implements OnClickListener {
     Button    song;
     //représente l'état du capteur de pression 
     CheckBox  ball;
+    //etat du capteur d'intensité lumineuse
+    CheckBox  floor;
     
     boolean clawState;
 
@@ -61,6 +63,10 @@ public class Game extends LinearLayout implements OnClickListener {
         ball.setClickable(false);
         ball.setChecked(false);
 
+        floor = new CheckBox(activity);
+        floor.setClickable(false);
+        floor.setChecked(false);
+
         battery = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
         motorA = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
         motorB = new ProgressBar(con, null, android.R.attr.progressBarStyleHorizontal);
@@ -73,6 +79,7 @@ public class Game extends LinearLayout implements OnClickListener {
         addView(motorA);
         addView(motorB);
         addView(ball);
+        addView(floor);
     }
 
     public void start() {
@@ -84,7 +91,8 @@ public class Game extends LinearLayout implements OnClickListener {
                     {
                         battery.setProgress((int)(activity.getNxt().getBatteryLevel() * 100));
                         ball.setChecked(activity.getNxt().gotBall());
-                     
+                        floor.setChecked(activity.getNxt().hasFloor());
+
                         int[] motors = activity.getNxt().getMotors();
                         motorA.setProgress((motors[Nxt.PORT_A] / 2) + 50);
                         motorB.setProgress((motors[Nxt.PORT_B] / 2) + 50);
