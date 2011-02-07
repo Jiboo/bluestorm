@@ -1,7 +1,7 @@
-window_sizes 1366 716 509 851 638 0
+window_sizes 1364 715 509 849 637 0
 diagrams
   active  classdiagram_ref 134530 // capteurs
-    1221 630 70 0 83 78
+    575 547 200 0 912 2302
 end
 show_stereotypes
 selected class_ref 129154 // Bluestorm

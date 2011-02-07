@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Bouml (http://bouml.free.fr/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1279" height="2243" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g>
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="176" y="280" width="435" height="12" />
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="176" y="292" width="1091" height="618" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-anchor="middle" x="722" y="301">Capteurs</text>
+</g>
+<g>
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="193" y="317" width="417" height="12" />
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="193" y="329" width="1044" height="166" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-anchor="middle" x="715" y="338">interfaces</text>
+</g>
+<g>
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="187" y="1111" width="118" height="12" />
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="187" y="1123" width="297" height="295" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-anchor="middle" x="336" y="1132">music</text>
+</g>
+<g>
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="500" y="1127" width="105" height="12" />
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="500" y="1139" width="265" height="278" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-anchor="middle" x="633" y="1148">ui</text>
+</g>
+<g>
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="854" y="1123" width="121" height="12" />
+	<rect fill="none" stroke="black" stroke-width="1" stroke-opacity="1" x="854" y="1135" width="306" height="1092" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-anchor="middle" x="1007" y="1144">com</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="364" y="570" width="2" height="194" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="238" y="762" width="128" height="2" />
+	<rect fill="#00aa00" stroke="black" stroke-width="1" stroke-opacity="1" x="235" y="567" width="129" height="195" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="300" y="575">Capteurs</text>
+	<line stroke="black" stroke-opacity="1" x1="235" y1="580" x2="364" y2="580" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="588">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="588">sensorManager</text>
+	<line stroke="black" stroke-opacity="1" x1="235" y1="593" x2="364" y2="593" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="601">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="601">Capteurs()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="613">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="613">subscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="625">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="625">unsubscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="637">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="637">pauseCapteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="649">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="649">resumeCapteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="661">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="661">subscribeGyroscope()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="673">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="673">subscribeOrientation()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="685">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="685">subscribeVWheelPower()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="697">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="697">unsubscribeOrientation()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="709">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="709">unsubscribeVWheelPower()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="721">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="721">getCapteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="733">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="733">getDefaultSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="745">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="745">registerListener()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="237" y="757">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="247" y="757">unregisterListener()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="676" y="551" width="2" height="194" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="572" y="743" width="106" height="2" />
+	<rect fill="#90ccff" stroke="black" stroke-width="1" stroke-opacity="1" x="569" y="548" width="107" height="195" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="623" y="556">Capteur</text>
+	<line stroke="black" stroke-opacity="1" x1="569" y1="561" x2="676" y2="561" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="569">#</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="569">listenerType</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="581">#</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="581">sensorType</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="593">#</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="593">sensibility</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="605">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="605">isOn</text>
+	<line stroke="black" stroke-opacity="1" x1="569" y1="610" x2="676" y2="610" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="618">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="618">Capteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="630">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="630">subscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="642">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="642">unsubscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="654">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="654">pauseSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="666">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="666">resumeSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="678">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="678">isOn()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="690">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="690">registerSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="702">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="702">unRegisterSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="714">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="714">isListener()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="726">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="726">onSensorChanged()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="571" y="738">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="581" y="738">onAccuracyChanged()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="302" y="1148" width="2" height="254" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="244" y="1400" width="60" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="241" y="1145" width="61" height="255" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="272" y="1153">Note</text>
+	<line stroke="black" stroke-opacity="1" x1="241" y1="1158" x2="302" y2="1158" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1166">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1166">DO</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1178">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1178">DOSharp</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1190">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1190">RE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1202">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1202">RESharp</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1214">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1214">MI</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1226">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1226">FA</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1238">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1238">FASharp</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1250">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1250">SOL</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1262">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1262">SOLSharp</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1274">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1274">LA</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1286">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1286">LASharp</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1298">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1298">SI</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1310">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1310">CROCHE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1322">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1322">NOIRE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1334">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1334">BLANCHE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1346">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="253" y="1346">RONDE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1358">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="253" y="1358">note</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1370">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="253" y="1370">delay</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1382">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="253" y="1382">mul</text>
+	<line stroke="black" stroke-opacity="1" x1="241" y1="1387" x2="302" y2="1387" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="243" y="1395">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="253" y="1395">Note()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="624" y="1238" width="2" height="64" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="569" y="1300" width="57" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="566" y="1235" width="58" height="65" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="595" y="1243">Home</text>
+	<line stroke="black" stroke-opacity="1" x1="566" y1="1248" x2="624" y2="1248" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="568" y="1256">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="578" y="1256">text</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="568" y="1268">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="578" y="1268">connexion</text>
+	<line stroke="black" stroke-opacity="1" x1="566" y1="1273" x2="624" y2="1273" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="568" y="1281">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="578" y="1281">Home()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="568" y="1293">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="578" y="1293">onClick()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="722" y="1246" width="2" height="146" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="651" y="1390" width="73" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="648" y="1243" width="74" height="147" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="685" y="1251">Game</text>
+	<line stroke="black" stroke-opacity="1" x1="648" y1="1256" x2="722" y2="1256" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1264">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1264">cycleClaw</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1276">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1276">disconnect</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1288">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1288">tone</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1300">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1300">song</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1312">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1312">clawState</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1324">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1324">battery</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1336">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1336">updateThread</text>
+	<line stroke="black" stroke-opacity="1" x1="648" y1="1341" x2="722" y2="1341" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1349">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1349">Game()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1361">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1361">start()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1373">#</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1373">finalize()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="650" y="1385">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="660" y="1385">onClick()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="1072" y="1412" width="2" height="818" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="900" y="2228" width="174" height="2" />
+	<rect fill="#ffd700" stroke="black" stroke-width="1" stroke-opacity="1" x="897" y="1409" width="175" height="819" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="985" y="1417">Nxt</text>
+	<line stroke="black" stroke-opacity="1" x1="897" y1="1422" x2="1072" y2="1422" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1430">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1430">adapter</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1442">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1442">dev</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1454">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1454">sock</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1466">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1466">paired</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1478">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1478">STATIC_SPEED</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1490">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1490">PORT_A</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1502">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1502">PORT_B</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1514">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1514">PORT_C</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1526">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1526">PORT_ALL</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1538">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1538">OUTPUT_MODE_MOTORON</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1550">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1550">OUTPUT_MODE_BRAKE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1562">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1562">OUTPUT_MODE_REGULATED</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1574">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1574">REGUL_MODE_IDLE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1586">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1586">REGUL_MODE_SPEED</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1598">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1598">REGUL_MODE_SYNC</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1610">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1610">RUN_STATE_IDLE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1622">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1622">RUN_STATE_RAMPUP</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1634">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1634">RUN_STATE_RUNNING</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1646">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1646">RUN_STATE_RAMPDOWN</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1658">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1658">LIMIT_FOREVER</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1670">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1670">SENSOR_NONE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1682">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1682">SENSOR_SWITCH</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1694">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1694">SENSOR_TEMPERATURE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1706">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1706">SENSOR_REFLECTION</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1718">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1718">SENSOR_ANGLE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1730">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1730">SENSOR_LIGHT_ACTIVE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1742">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1742">SENSOR_LIGHT_INACTIVE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1754">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1754">SENSOR_SOUND_DB</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1766">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1766">SENSOR_SOUND_DBA</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1778">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1778">SENSOR_CUSTOM</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1790">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1790">SENSOR_LOWSPEED</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1802">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1802">SENSOR_LOWSPEED_9V</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1814">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1814">SENSOR_NO_OF_SENSOR_TYPES</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1826">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1826">SENSOR_MODE_RAW</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1838">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1838">SENSOR_MODE_BOOLEAN</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1850">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1850">SENSOR_MODE_TRANSITIONCNT</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1862">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1862">SENSOR_MODE_PERIODCOUNTER</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1874">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1874">SENSOR_MODE_PCTFULLSCALE</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1886">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1886">SENSOR_MODE_CELCIUS</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1898">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1898">SENSOR_MODE_FAHRENHEIT</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1910">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1910">SENSOR_MODE_ANGLESTEPS</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1922">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1922">SENSOR_SLOPEMASK</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1934">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="909" y="1934">SENSOR_MODEMASK</text>
+	<line stroke="black" stroke-opacity="1" x1="897" y1="1939" x2="1072" y2="1939" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1947">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1947">Nxt()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1959">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1959">isPaired()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1971">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1971">isConnected()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1983">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1983">connect()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="1995">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="1995">close()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2007">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2007">send()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2019">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2019">read()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2031">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2031">keepAlive()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2043">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2043">setOutputState()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2055">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2055">setInputMode()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2067">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2067">getInputValues()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2079">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2079">setSpeed()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2091">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2091">stop()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2103">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2103">goForward()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2115">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2115">goBackward()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2127">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2127">turnLeft()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2139">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2139">turnRight()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2151">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2151">openClaw()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2163">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2163">closeClaw()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2175">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2175">gotBall()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2187">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2187">getBatteryLevel()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2199">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2199">emitTone()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2211">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2211">getObstacleDistance()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="899" y="2223">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="909" y="2223">hasFloor()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="685" y="975" width="2" height="122" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="587" y="1095" width="100" height="2" />
+	<rect fill="#ff8000" stroke="black" stroke-width="1" stroke-opacity="1" x="584" y="972" width="101" height="123" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="635" y="980">Bluestorm</text>
+	<line stroke="black" stroke-opacity="1" x1="584" y1="985" x2="685" y2="985" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="993">~</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="993">progress</text>
+	<line stroke="black" stroke-opacity="1" x1="584" y1="998" x2="685" y2="998" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1006">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1006">onCreate()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1018">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1018">onDestroy()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1030">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1030">getWheelPower()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1042">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1042">alert()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1054">-</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1054">changeView()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1066">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1066">demarrerConnexion()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1078">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1078">stop()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="586" y="1090">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="596" y="1090">getNxt()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="589" y1="1098" x2="582" y2="1103" />
+	<line stroke="black" stroke-opacity="1" x1="589" y1="1098" x2="594" y2="1104" />
+	<line stroke="black" stroke-opacity="1" x1="585" y1="1234" x2="589" y2="1098" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="656" y1="1098" x2="650" y2="1104" />
+	<line stroke="black" stroke-opacity="1" x1="656" y1="1098" x2="662" y2="1103" />
+	<line stroke="black" stroke-opacity="1" x1="657" y1="1242" x2="656" y2="1098" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="367" y1="739" x2="366" y2="747" />
+	<line stroke="black" stroke-opacity="1" x1="367" y1="739" x2="375" y2="739" />
+	<line stroke="black" stroke-opacity="1" x1="583" y1="976" x2="367" y2="739" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="604" y1="1234" x2="610" y2="1228" />
+	<line stroke="black" stroke-opacity="1" x1="604" y1="1234" x2="598" y2="1227" />
+	<line stroke="black" stroke-opacity="1" x1="608" y1="1098" x2="604" y2="1234" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="681" y1="1242" x2="686" y2="1235" />
+	<line stroke="black" stroke-opacity="1" x1="681" y1="1242" x2="674" y2="1236" />
+	<line stroke="black" stroke-opacity="1" x1="679" y1="1098" x2="681" y2="1242" />
+</g>
+<g>
+	<ellipse fill="#ffeb60" stroke="black" stroke-width="1" stroke-opacity="1" cx="985" cy="1157" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="985" y="1172">INxt</text>
+	<line stroke="black" stroke-opacity="1" x1="931" y1="1177" x2="1039" y2="1177" />
+	<line stroke="black" stroke-opacity="1" x1="931" y1="1182" x2="1039" y2="1182" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1190">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1190">isPaired()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1202">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1202">isConnected()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1214">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1214">hasFloor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1226">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1226">connect()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1238">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1238">close()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1250">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1250">setSpeed()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1262">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1262">stop()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1274">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1274">goForward()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1286">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1286">goBackward()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1298">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1298">turnLeft()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1310">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1310">turnRight()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1322">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1322">openClaw()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1334">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1334">closeClaw()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1346">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1346">gotBall()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1358">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1358">getObstacleDistance()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1370">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1370">getBatteryLevel()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="933" y="1382">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="943" y="1382">emitTone()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="596" y="772" width="2" height="30" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="534" y="800" width="64" height="2" />
+	<rect fill="#60aaff" stroke="black" stroke-width="1" stroke-opacity="1" x="531" y="769" width="65" height="31" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="564" y="777">Gyroscope</text>
+	<line stroke="black" stroke-opacity="1" x1="531" y1="782" x2="596" y2="782" />
+	<line stroke="black" stroke-opacity="1" x1="531" y1="787" x2="596" y2="787" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="533" y="795">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="543" y="795">Gyroscope()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="687" y="774" width="2" height="30" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="625" y="802" width="64" height="2" />
+	<rect fill="#60aaff" stroke="black" stroke-width="1" stroke-opacity="1" x="622" y="771" width="65" height="31" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="655" y="779">Orientation</text>
+	<line stroke="black" stroke-opacity="1" x1="622" y1="784" x2="687" y2="784" />
+	<line stroke="black" stroke-opacity="1" x1="622" y1="789" x2="687" y2="789" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="624" y="797">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="634" y="797">Orientation()</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="676" y="817" width="2" height="62" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="552" y="877" width="126" height="2" />
+	<rect fill="#60aaff" stroke="black" stroke-width="1" stroke-opacity="1" x="549" y="814" width="127" height="63" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="613" y="822">VirtualSensorWheelPower</text>
+	<line stroke="black" stroke-opacity="1" x1="549" y1="827" x2="676" y2="827" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="551" y="835">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="561" y="835">ANGLE_1</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="551" y="847">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" text-decoration="underline" x="561" y="847">ANGLE_2</text>
+	<line stroke="black" stroke-opacity="1" x1="549" y1="852" x2="676" y2="852" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="551" y="860">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="561" y="860">VirtualSensorWheelPower()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="551" y="872">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="561" y="872">onSensorChanged()</text>
+</g>
+<g>
+	<ellipse fill="#c0ffc0" stroke="black" stroke-width="1" stroke-opacity="1" cx="644" cy="364" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="644" y="379">ICapteur</text>
+	<line stroke="black" stroke-opacity="1" x1="604" y1="384" x2="684" y2="384" />
+	<line stroke="black" stroke-opacity="1" x1="604" y1="389" x2="684" y2="389" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="606" y="397">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="616" y="397">subscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="606" y="409">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="616" y="409">unsubscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="606" y="421">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="616" y="421">pauseSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="606" y="433">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="616" y="433">resumeSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="606" y="445">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="616" y="445">isOn()</text>
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="985" y1="1408" x2="985" y2="1394" />
+	<line stroke="black" stroke-opacity="1" x1="985" y1="1388" x2="979" y2="1394" />
+	<line stroke="black" stroke-opacity="1" x1="985" y1="1388" x2="991" y2="1394" />
+	<line stroke="black" stroke-opacity="1" x1="979" y1="1394" x2="991" y2="1394" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="930" y1="1232" x2="928" y2="1223" />
+	<line stroke="black" stroke-opacity="1" x1="930" y1="1232" x2="921" y2="1233" />
+	<line stroke="black" stroke-opacity="1" x1="688" y1="1070" x2="930" y2="1232" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="572" y1="768" x2="577" y2="751" />
+	<line stroke="black" stroke-opacity="1" x1="579" y1="746" x2="571" y2="749" />
+	<line stroke="black" stroke-opacity="1" x1="579" y1="746" x2="582" y2="753" />
+	<line stroke="black" stroke-opacity="1" x1="571" y1="749" x2="582" y2="753" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="658" y1="770" x2="652" y2="751" />
+	<line stroke="black" stroke-opacity="1" x1="651" y1="746" x2="646" y2="753" />
+	<line stroke="black" stroke-opacity="1" x1="651" y1="746" x2="658" y2="750" />
+	<line stroke="black" stroke-opacity="1" x1="646" y1="753" x2="658" y2="750" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="615" y1="813" x2="617" y2="751" />
+	<line stroke="black" stroke-opacity="1" x1="618" y1="746" x2="611" y2="751" />
+	<line stroke="black" stroke-opacity="1" x1="618" y1="746" x2="623" y2="752" />
+	<line stroke="black" stroke-opacity="1" x1="611" y1="751" x2="623" y2="752" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="367" y1="567" x2="498" y2="380" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="603" y1="381" x2="597" y2="374" />
+	<line stroke="black" stroke-opacity="1" x1="603" y1="381" x2="596" y2="386" />
+	<line stroke="black" stroke-opacity="1" x1="498" y1="380" x2="603" y2="381" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="367" y1="573" x2="499" y2="398" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="603" y1="399" x2="597" y2="392" />
+	<line stroke="black" stroke-opacity="1" x1="603" y1="399" x2="596" y2="404" />
+	<line stroke="black" stroke-opacity="1" x1="499" y1="398" x2="603" y2="399" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="367" y1="580" x2="506" y2="413" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="603" y1="414" x2="597" y2="407" />
+	<line stroke="black" stroke-opacity="1" x1="603" y1="414" x2="596" y2="419" />
+	<line stroke="black" stroke-opacity="1" x1="506" y1="413" x2="603" y2="414" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="631" y1="547" x2="631" y2="456" />
+	<line stroke="black" stroke-opacity="1" x1="632" y1="451" x2="625" y2="456" />
+	<line stroke="black" stroke-opacity="1" x1="632" y1="451" x2="637" y2="457" />
+	<line stroke="black" stroke-opacity="1" x1="625" y1="456" x2="637" y2="457" />
+</g>
+<g>
+	<ellipse fill="#90e990" stroke="black" stroke-width="1" stroke-opacity="1" cx="301" cy="361" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="301" y="376">ISensorManager</text>
+	<line stroke="black" stroke-opacity="1" x1="254" y1="381" x2="348" y2="381" />
+	<line stroke="black" stroke-opacity="1" x1="254" y1="386" x2="348" y2="386" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="394">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="394">subscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="406">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="406">unsubscribe()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="418">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="418">pauseCapteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="430">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="430">resumeCapteur()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="442">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="442">getDefaultSensor()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="454">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="454">registerListener()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="256" y="466">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="266" y="466">unregisterListener()</text>
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="301" y1="566" x2="301" y2="478" />
+	<line stroke="black" stroke-opacity="1" x1="301" y1="472" x2="295" y2="478" />
+	<line stroke="black" stroke-opacity="1" x1="301" y1="472" x2="307" y2="478" />
+	<line stroke="black" stroke-opacity="1" x1="295" y1="478" x2="307" y2="478" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="568" y1="577" x2="436" y2="413" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="348" y1="413" x2="354" y2="419" />
+	<line stroke="black" stroke-opacity="1" x1="348" y1="413" x2="354" y2="407" />
+	<line stroke="black" stroke-opacity="1" x1="436" y1="413" x2="348" y2="413" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="551" y="374">gyroscope</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="550" y="392">orientation</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="536" y="407">vWheelPower</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="360" y="406">sensorManager</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="814" y="365">subsribedListeners</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="314" y="1266">notes</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="313" y="1285">[]</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="597" y="1110">activity</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="662" y="1110">activity</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="376" y="749">capteurs</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="612" y="1227">home</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="688" y="1235">game</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="907" y="1231">NXT</text>
+</g>
+<g>
+	<ellipse fill="#ffc0ff" stroke="black" stroke-width="1" stroke-opacity="1" cx="923" cy="350" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="923" y="365">ISensorListener</text>
+	<line stroke="black" stroke-opacity="1" x1="885" y1="370" x2="961" y2="370" />
+	<line stroke="black" stroke-opacity="1" x1="885" y1="375" x2="961" y2="375" />
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="442" y="1247" width="2" height="55" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="388" y="1300" width="56" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="385" y="1244" width="57" height="56" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="414" y="1252">Partition</text>
+	<line stroke="black" stroke-opacity="1" x1="385" y1="1257" x2="442" y2="1257" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="387" y="1265">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="397" y="1265">tempo</text>
+	<line stroke="black" stroke-opacity="1" x1="385" y1="1270" x2="442" y2="1270" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="387" y="1278">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="397" y="1278">Partition()</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="387" y="1290">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="397" y="1290">play()</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="746" y="423">&lt;&lt;ArrayList&gt;&gt;</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="900" y1="381" x2="891" y2="380" />
+	<line stroke="black" stroke-opacity="1" x1="900" y1="381" x2="899" y2="389" />
+	<line stroke="black" stroke-opacity="1" x1="679" y1="591" x2="900" y2="381" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="305" y1="1273" x2="311" y2="1279" />
+	<line stroke="black" stroke-opacity="1" x1="305" y1="1273" x2="311" y2="1267" />
+	<line stroke="black" stroke-opacity="1" x1="384" y1="1273" x2="305" y2="1273" />
+</g>
+<g>
+	<ellipse fill="#ffc0ff" stroke="black" stroke-width="1" stroke-opacity="1" cx="923" cy="447" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="923" y="462">IVirtualSensorWheelPowerListener</text>
+	<line stroke="black" stroke-opacity="1" x1="842" y1="467" x2="1004" y2="467" />
+	<line stroke="black" stroke-opacity="1" x1="842" y1="472" x2="1004" y2="472" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="844" y="480">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="854" y="480">getWheelPower()</text>
+</g>
+<g>
+	<ellipse fill="#ffc0ff" stroke="black" stroke-width="1" stroke-opacity="1" cx="1155" cy="406" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="1155" y="421">IGyroscopeListener</text>
+	<line stroke="black" stroke-opacity="1" x1="1108" y1="426" x2="1202" y2="426" />
+	<line stroke="black" stroke-opacity="1" x1="1108" y1="431" x2="1202" y2="431" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="1110" y="439">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="1120" y="439">getGyroscope()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="923" y1="439" x2="923" y2="387" />
+	<line stroke="black" stroke-opacity="1" x1="923" y1="381" x2="917" y2="387" />
+	<line stroke="black" stroke-opacity="1" x1="923" y1="381" x2="929" y2="387" />
+	<line stroke="black" stroke-opacity="1" x1="917" y1="387" x2="929" y2="387" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="1107" y1="409" x2="966" y2="376" />
+	<line stroke="black" stroke-opacity="1" x1="961" y1="375" x2="965" y2="382" />
+	<line stroke="black" stroke-opacity="1" x1="961" y1="375" x2="968" y2="370" />
+	<line stroke="black" stroke-opacity="1" x1="965" y1="382" x2="968" y2="370" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="666" y1="971" x2="906" y2="491" />
+	<line stroke="black" stroke-opacity="1" x1="909" y1="486" x2="900" y2="488" />
+	<line stroke="black" stroke-opacity="1" x1="909" y1="486" x2="911" y2="494" />
+	<line stroke="black" stroke-opacity="1" x1="900" y1="488" x2="911" y2="494" />
+</g>
+<g>
+	<ellipse fill="#ffc0ff" stroke="black" stroke-width="1" stroke-opacity="1" cx="1072" cy="451" rx="7" ry="7" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="1072" y="466">IOrientationListener</text>
+	<line stroke="black" stroke-opacity="1" x1="1024" y1="471" x2="1120" y2="471" />
+	<line stroke="black" stroke-opacity="1" x1="1024" y1="476" x2="1120" y2="476" />
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" font-weight="bold" x="1026" y="484">+</text>
+	<text font-family="Helvetica" font-size="7" fill="#000000" xml:space="preserve" x="1036" y="484">getOrientation()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="1039" y1="443" x2="947" y2="384" />
+	<line stroke="black" stroke-opacity="1" x1="942" y1="381" x2="943" y2="389" />
+	<line stroke="black" stroke-opacity="1" x1="942" y1="381" x2="950" y2="379" />
+	<line stroke="black" stroke-opacity="1" x1="943" y1="389" x2="950" y2="379" />
+</g>
+</svg>
