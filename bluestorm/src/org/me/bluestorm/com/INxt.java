@@ -24,7 +24,7 @@ public interface INxt
      * @return Vrai si le capteur de lumière (sous le robot) detecte le sol (de l'obscuritée)
      * @throws IOException
      */
-    public boolean hasFloor() throws IOException;
+    public boolean hasFloor() throws IOException, InterruptedException;
 
     /**
      * Demmare la connection vers le NXT
@@ -95,7 +95,7 @@ public interface INxt
      * @return vrai si le capteur de pression est appuyé
      * @throws IOException
      */
-    boolean gotBall() throws IOException;
+    boolean gotBall() throws IOException, InterruptedException;
 
     /**
      * @return la distance de l'obstacle en face du robot (en m)
@@ -107,7 +107,7 @@ public interface INxt
      * @return le niveau de la batterie [0.0-1.0]
      * @throws IOException erreur sur le socket
      */
-    double getBatteryLevel() throws IOException;
+    double getBatteryLevel() throws IOException, InterruptedException;
 
     /**
      * Demande au NXT d'emmetre un beep

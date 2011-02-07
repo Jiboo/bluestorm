@@ -81,7 +81,10 @@ public class Nxt implements INxt {
         Log.d("bluestorm", "Trame envoyée: " + sb.toString());
     }
 
-    private synchronized byte[] read() throws IOException {
+    /**
+     * Ne jamais appelé cette fonction, utilisé send_read pour recevoir la réponse d' une demande
+     */
+    private byte[] read() throws IOException {
         byte[] size_header = new byte[2];
         if(sock.getInputStream().read(size_header) == -1) throw new IOException("Erreur lors de la lecture de l'entete");
         int size = size_header[0] + (size_header[1]<<8);
@@ -95,7 +98,17 @@ public class Nxt implements INxt {
             formater.format("%2x ", b);
         Log.d("bluestorm", "Trame lu: " + sb.toString());
 
+        if(ba[0] != (byte)0x2 || ba[2] != (byte)0x0)
+        {
+            throw new IOException("trame mal formaté");
+        }
+
         return ba;
+    }
+
+    private synchronized byte[] send_read(byte[] ba) throws IOException, InterruptedException {
+        send(ba);
+        return read();
     }
 
     private void keepAlive() throws IOException {
@@ -191,15 +204,14 @@ public class Nxt implements INxt {
         send(ba);
     }
 
-    private void getInputValues(byte port) throws IOException {
-        byte[] ba = {
+    private byte[] getInputValues(byte port) throws IOException, InterruptedException {
+        return send_read(new byte[] {
             (byte)0x03,
             (byte)0x00,
             (byte)0x00, // Réponse
             (byte)0x07, // GetInputValues
             port
-        };
-        send(ba);
+        });
     }
 
     public void setSpeed(byte pLeftSpeed, byte pRightSpeed) throws IOException {
@@ -233,34 +245,10 @@ public class Nxt implements INxt {
         setOutputState(PORT_C, (byte)(0), OUTPUT_MODE_BRAKE, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_IDLE, 0L);
     }
 
-    public void closeClaw() throws IOException, InterruptedException {
-        setOutputState(PORT_C, (byte)(-80), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
+    public void closeClaw() throws IOException {
+        setOutputState(PORT_C, (byte)(-70), OUTPUT_MODE_MOTORON, REGUL_MODE_IDLE, (byte)(0), RUN_STATE_RUNNING, 0L);
     }
-
-    public synchronized boolean gotBall() throws IOException {
-        getInputValues((byte)0);
-        byte[] rep = read();
-
-        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
-
-        return rep[12] == 1;
-    }
-
-    public synchronized double getBatteryLevel() throws IOException {
-        byte[] ba = {
-            (byte)0x02,
-            (byte)0x00,
-            (byte)0x00, // Réponse
-            (byte)0x0B, // BatteryLevel
-        };
-        send(ba);
-
-        byte[] rep = read();
-
-        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0xB && rep[2] == (byte)0x0);
-        return ((rep[3] & 0xFF) | ((rep[4] & 0xFF)<<8)) / 9000.0;
-    }
-
+    
     public void emitTone(int pFreq, int pDur) throws IOException, InterruptedException {
         byte[] ba = {
             (byte)0x06,
@@ -274,16 +262,31 @@ public class Nxt implements INxt {
         Thread.sleep(pDur);
     }
 
+    public boolean gotBall() throws IOException, InterruptedException {
+        byte[] rep = getInputValues((byte)0);
+        return rep[12] == 1;
+    }
+
+    public double getBatteryLevel() throws IOException, InterruptedException {
+        byte[] rep = send_read(new byte[] {
+            (byte)0x02,
+            (byte)0x00,
+            (byte)0x00, // Réponse
+            (byte)0x0B, // BatteryLevel
+        });
+
+        if(rep[0] != (byte)0x2 && rep[1] != (byte)0xB && rep[2] != (byte)0x0)
+            throw new IOException("erreur sur la trame recu du nxt");
+
+        return ((rep[3] & 0xFF) | ((rep[4] & 0xFF)<<8)) / 9000.0;
+    }
+
     public short getObstacleDistance() throws IOException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public synchronized boolean hasFloor() throws IOException {
-        getInputValues((byte)2);
-        byte[] rep = read();
-
-        assert(rep[0] == (byte)0x2 && rep[1] == (byte)0x7 && rep[2] == (byte)0x0);
-
+    public boolean hasFloor() throws IOException, InterruptedException {
+        byte[] rep = getInputValues((byte)2);
         return ((rep[10] & 0xFF) | ((rep[11] & 0xFF)<<8)) > 300;
     }
 
