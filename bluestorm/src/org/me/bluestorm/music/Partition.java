@@ -35,7 +35,7 @@ public class Partition {
                     for(Note note : notes)
                     {
                         double temps = (note.delay / (double)tempo) * 60000.0;
-                        Log.d("partition", String.format("%5d %5d", (int)(note.note * (double)note.mul), (int)((temps/4.)*3.)));
+                        Log.d("partition", String.format("%5d %5d", (int)(note.note * (double)note.mul), (int)((temps/5.)*4.)));
                         nxt.emitTone((int)(note.note * (double)note.mul), (int)((temps/5.)*4.));
 
                         Thread.sleep((int)temps/5);

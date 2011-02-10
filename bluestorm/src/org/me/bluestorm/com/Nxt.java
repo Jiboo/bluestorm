@@ -83,6 +83,7 @@ public class Nxt implements INxt {
 
     /**
      * Ne jamais appelé cette fonction, utilisé send_read pour recevoir la réponse d' une demande
+     * @deprecated
      */
     private byte[] read() throws IOException {
         byte[] size_header = new byte[2];
